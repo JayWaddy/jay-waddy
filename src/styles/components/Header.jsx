@@ -1,13 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import style from 'styled-components';
 import { colors } from '../global';
 
+import { Logo, containerWidth } from '../../styles/components/Main';
+
+import logo from '../../../src/img/logo.svg';
+
+/*
+ * Unique component styles
+ */
+
 const Header = style.div`
     position: absolute;
+    display: flex;
 
-    top: 50px;
-    width: 100%;
+    bottom: 50px;
+    width: ${containerWidth}px;
     color: ${colors.white};
 
     ul {
@@ -15,9 +24,10 @@ const Header = style.div`
         flex-direction: row;
         justify-content: center;
 
+        margin: auto;
+
         li {
             margin: 0 15px;
-            text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
 
             &:hover {
                 cursor: pointer;
@@ -26,19 +36,18 @@ const Header = style.div`
     }
 `;
 
-function clicker() {
-    console.log('clicked!');;
-}
-
 export default function Nav() {
     return(
-        <Header className="wrapper">
+        <>
+        <Logo src={logo} />
+        <Header>
             <ul>
                 <li><Link to="/">Home</Link></li>
-                <li>Projecs</li>
-                <li>About</li>
-                <li>Contact</li>
+                <li><Link to="/projects">Projects</Link></li>
+                <li><Link to="/about">About</Link></li>
+                <li><Link to="/contact">Contact</Link></li>
             </ul>
         </Header>
+        </>
     );
 }
