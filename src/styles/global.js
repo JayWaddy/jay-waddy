@@ -8,9 +8,9 @@ export const colors = {
     secondary: '',
 
     // Theme colors
-    yellow: '',
-    cyan: '',
-    magenta: ''
+    yellow: '#ffff00',
+    cyan: '#00dcf4',
+    magenta: '#d900e9'
 }
 
 // Ease functions

@@ -1,13 +1,15 @@
 import React from 'react';
-import Home from './styles/pages/Home';
-import { Header } from './styles/components/Header';
+import  Home  from './styles/pages/Home';
+
+import { Container } from './styles/components/Main';
+import Nav from './styles/components/Header';
 
 function App() {
   return (
-    <>
-      <Header>Hello</Header>
+    <Container>
+      <Nav />
       <Home />
-    </>
+    </Container>
   );
 }
 
