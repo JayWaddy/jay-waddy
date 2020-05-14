@@ -6,7 +6,7 @@ const jostBlackItalic = require('../../fonts/Jost-BlackItalic.ttf');
 const jostRegular = require('../../fonts/Jost-Regular.ttf');
 
 
-const widthDiff = 40;
+export const widthDiff = 60;
 
 export let containerWidth = 350;
 export let contentWidth = containerWidth - widthDiff;
@@ -60,8 +60,7 @@ export const SiteContainer = style.div`
     }
 
     h1 {
-        margin: 10px 0;
-
+        margin-bottom: 10px;
         font-size: 18px;
     }
 `;
@@ -92,24 +91,14 @@ export const PageContentCenter = style.main`
 
     width: ${ contentWidth }px;
     margin: auto;
-
-    h1 {
-        margin: 40px 0;
-    }
 `;
 
 /*
  * Page component styles
  */
 
-export const Logo = style.img`
-    position: absolute;
-    top: 20px;
-    width: 30px;
-`;
-
 export const Button = style.button`
-    width: ${ contentWidth - widthDiff * 2 }px;
+    width: ${ contentWidth - widthDiff }px;
 
     margin: 5px 0;
     padding: 20px;

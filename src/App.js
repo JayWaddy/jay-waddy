@@ -3,9 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import { SiteContainer as Container, PageContainer as Page } from './styles/components/Main';
 
-// import { Logo } from './styles/components/Main';
-// import logo from '../src/img/logo.svg';
-
 import Nav from './styles/components/Header';
 import Home  from './styles/pages/Home';
 import Projects  from './styles/pages/Projects';
@@ -18,7 +15,6 @@ function App() {
     <>
       <Container>
         <Page>
-          {/* <Logo src={logo} /> */}
           <Router>
               <Nav />
               <Switch>
