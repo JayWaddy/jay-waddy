@@ -1,5 +1,5 @@
 import React from 'react';
-import style from 'styled-components';
+import styled from 'styled-components';
 
 import { colors } from '../global';
 
@@ -12,7 +12,7 @@ import {
 /*
  * Unique component styles
  */
-const Assets = style.div`
+const Assets = styled.div`
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -20,7 +20,7 @@ const Assets = style.div`
     margin: 60px 0;
 `;
 
-const Circle = style.div`
+const Circle = styled.div`
     display: felx;
     justify-content: center;
     align-items: center;
@@ -30,7 +30,9 @@ const Circle = style.div`
     margin: 0 5px;
 
     border-radius: 50px;
-    background: ${ colors.magenta };
+    background: ${ colors.yellow };
+
+    color: ${ colors.black } !important;
 `;
 
 export default function About() {
@@ -42,11 +44,11 @@ export default function About() {
                     <p>Then some further explaination can go here. And here if the text needs to wrap.</p>
 
                     <Assets>
-                        <Circle>Text</Circle>
-                        <Circle>Text</Circle>
-                        <Circle>Text</Circle>
-                        <Circle>Text</Circle>
-                        <Circle>Text</Circle>
+                        <Circle>UX/UI</Circle>
+                        <Circle>Mobile 1st Design</Circle>
+                        <Circle>JS ES6+</Circle>
+                        <Circle>100% Custom</Circle>
+                        <Circle>Easy <br /> Hand-off</Circle>
                     </Assets>
 
                     <h1>Here's some further detail.</h1>

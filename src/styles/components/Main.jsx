@@ -1,4 +1,4 @@
-import style, { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { colors } from '../global';
 
 const jostBlack = require('../../fonts/Jost-Black.ttf');
@@ -11,12 +11,11 @@ export const widthDiff = 60;
 export let containerWidth = 350;
 export let contentWidth = containerWidth - widthDiff;
 
-
 /*
  * Containers/wrappers
  */
 
-export const SiteContainer = style.div`
+export const SiteContainer = styled.div`
     @font-face {
         font-family: 'Jost';
         src: url(${ jostBlack });
@@ -43,7 +42,7 @@ export const SiteContainer = style.div`
     height: 100%;
     background: ${ colors.black };
 
-    p, button, h1, h2, a, div {
+    p, button, h1, h2, a, div, small {
         font-family: 'Jost';
         font-size: 12px;
         text-decoration: none;
@@ -65,7 +64,7 @@ export const SiteContainer = style.div`
     }
 `;
 
-export const PageContainer = style.section`
+export const PageContainer = styled.section`
     display: flex;
     flex-direction: column;
 
@@ -74,16 +73,17 @@ export const PageContainer = style.section`
     margin: 0 auto;
 `;
 
-export const PageContent = style.main`
+export const PageContent = styled.main`
     display: flex;
     flex-direction: column;
 
     margin: 100px auto auto auto;
     width: ${ contentWidth }px;
+    overflow: hidden;
 `;
 
 // Home and 404 page will use this
-export const PageContentCenter = style.main`
+export const PageContentCenter = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -93,11 +93,9 @@ export const PageContentCenter = style.main`
     margin: auto;
 `;
 
-/*
- * Page component styles
- */
-
-export const Button = style.button`
+// Button
+export const Button = styled.button`
+    position: relative;
     width: ${ contentWidth - widthDiff }px;
 
     margin: 5px 0;
@@ -105,7 +103,36 @@ export const Button = style.button`
     border-radius: 3px;
     border: none;
 
+    span {
+        position: relative;
+        color: ${ colors.black } !important;
+        z-index: 2;
+    }
+
     ${props => props.primary && css`
+        &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            content: '';
+            padding: 29px 112px;
+            border-radius: 3px;
+            background: ${ colors.cyan };
+        }
+
+        &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            content: '';
+            padding: 29px 109px;
+            border-radius: 3px;
+            background: ${ colors.yellow };
+            z-index: 1;
+        }
+
         background: ${ colors.magenta };
         color: ${ colors.white };
     `}

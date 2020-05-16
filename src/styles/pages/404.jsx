@@ -1,24 +1,26 @@
 import React from 'react';
-import style, { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import {Link} from 'react-router-dom';
 
+// Style
 import { colors } from '../global';
-
 import { 
     SiteContainer as Container, 
     PageContainer as Page,
-    PageContentCenter as Content,
-    Button
+    PageContentCenter as Content
 } from '../components/Main';
+
+// Components
+import Button from '../components/Button'
 
 /*
  * Unique component styles
  */
-const LogoSpacing = style.div`
+const LogoSpacing = styled.div`
     margin: 20px 0;
 `;
 
-const Assets = style.div`
+const Assets = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -26,7 +28,7 @@ const Assets = style.div`
     margin-bottom: 20px;
 `;
 
-const Circle = style.div`
+const Circle = styled.div`
     display: felx;
     justify-content: center;
     align-items: center;
@@ -59,7 +61,7 @@ const Circle = style.div`
     `}
 `;
 
-const ButtonSpacing = style.div`
+const ButtonSpacing = styled.div`
     margin: 0 0 10px 0;
 `;
 
@@ -76,7 +78,7 @@ export default function _404() {
                     </LogoSpacing>
 
                     <ButtonSpacing>
-                        <Link to="/"><Button primary="true">Go to home page</Button></Link>
+                        <Button set="primary" text="Go to home page" link="/"/>
                     </ButtonSpacing>
 
                     <Assets>

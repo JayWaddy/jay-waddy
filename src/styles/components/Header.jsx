@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import style from 'styled-components';
+import styled from 'styled-components';
 import { colors } from '../global';
 
 import { containerWidth } from '../../styles/components/Main';
@@ -12,7 +12,7 @@ import logo from '../../../src/img/logo.svg';
  * Unique component styles
  */
 
-const Header = style.div`
+const Header = styled.div`
     position: absolute;
     display: flex;
 
@@ -37,14 +37,22 @@ const Header = style.div`
     }
 `;
 
-export const Logo = style.img`
+export const Logo = styled.img`
     position: absolute;
     top: 20px;
     
     width: 30px;
 `;
 
-const PageTitle = style.p`
+export const LogoContaier = styled.div`
+    position: relative;
+    display: flex;
+    justify-content: left;
+
+    z-index: 11;
+`;
+
+const PageTitle = styled.p`
     position: absolute;
     top: 20px;
 
@@ -54,7 +62,9 @@ const PageTitle = style.p`
 export default function Nav() {
     return(
         <>
-        <Logo src={logo} />
+        <LogoContaier>
+            <Link to="/"><Logo src={logo}/></Link>
+        </LogoContaier>
         <PageTitle>Page Title</PageTitle>
         <Header>
             <ul>

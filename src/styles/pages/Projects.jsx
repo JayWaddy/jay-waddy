@@ -6,6 +6,9 @@ import {
     PageContent as Content
 } from '../components/Main';
 
+// Components
+import Card from '../components/Card';
+
 export default function Projects() {
     return (
         <Container>
@@ -13,6 +16,8 @@ export default function Projects() {
                 <Content>
                     <h1>A descriptive title for my work.</h1>
                     <p>Then some further explaination can go here. And here if the text needs to wrap.</p>
+
+                    <Card />
                 </Content>
             </Page>
         </Container>

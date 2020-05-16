@@ -1,18 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import style from 'styled-components';
+import styled from 'styled-components';
 
 import { 
     SiteContainer as Container, 
     PageContainer as Page, 
-    PageContentCenter as Content, 
-    Button 
+    PageContentCenter as Content
 } from '../components/Main';
+import Button from '../components/Button';
 
 /*
  * Unique component styles
  */
-const HeroText = style.div`
+const HeroText = styled.div`
     margin: 40px 0;
 
     h1 {
@@ -30,8 +29,8 @@ export default function Home() {
                         <h1>A short description of what I do.</h1>
                         <h1>Maybe a little more here.</h1>
                     </HeroText>
-                    <Link to="/projects"><Button primary="true">Explore projects</Button></Link>
-                    <Link to="/contact"><Button secondary="true">Let's team up</Button></Link>
+                    <Button set="primary" text="Explore projects" link="/projects"/>
+                    <Button set="secondary" text="Let's team up" link="/contact"/>
                 </Content>
             </Page>
         </Container>

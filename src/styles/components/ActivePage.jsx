@@ -1,18 +1,19 @@
 import React from 'react';
-import style, { css } from 'styled-components';
+import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import { colors } from '../global';
 
-const ActivePageContainer = style.div`
+const ActivePageContainer = styled.div`
     position: absolute;
     display: flex;
-    flex-direction; column;
     align-items: center;
 
     height: 100%;
+    z-index: 10;
 `;
 
-const Dot = style.div`
+const Dot = styled.div`
     width: 1px;
     border: solid ${ colors.white } 2px;
     border-radius: 50px;
@@ -33,10 +34,10 @@ export default function ActivePage() {
     return (
         <ActivePageContainer>
             <div>
-                <Dot active="true"/>
-                <Dot />
-                <Dot />
-                <Dot />
+                <Link to="/"><Dot active="true"/></Link>
+                <Link to="/projects"><Dot/></Link>
+                <Link to="/about"><Dot/></Link>
+                <Link to="/contact"><Dot/></Link>
             </div>
         </ActivePageContainer>
     )
