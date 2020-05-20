@@ -104,7 +104,7 @@ class Nav extends Component {
                         <li><Link to="/contact">Contact</Link></li>
                     </ul>
                 </Header>
-                <ActivePage page={ this.props.pageTitle}/>
+                <ActivePage page={ this.state.pageTitle}/>
             </React.Fragment>
         );
     }

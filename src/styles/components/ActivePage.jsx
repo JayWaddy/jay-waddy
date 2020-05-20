@@ -24,20 +24,20 @@ const Dot = styled.div`
     opacity: 0.5;
     transition: 0.3s;
 
-    ${props => props.active && css`
+    ${props => props.active === true && css`
         background: ${ colors.white };
         opacity: 1;
     `}
 `;
 
-export default function ActivePage() {
+export default function ActivePage({ page }) {
     return (
         <ActivePageContainer>
             <div>
-                <Link to="/"><Dot active="true"/></Link>
-                <Link to="/projects"><Dot/></Link>
-                <Link to="/about"><Dot/></Link>
-                <Link to="/contact"><Dot/></Link>
+                <Link to="/"><Dot active={page === 'Home' ? true : false}/></Link>
+                <Link to="/projects"><Dot active={page === 'Projects' ? true : false}/></Link>
+                <Link to="/about"><Dot active={page === 'About' ? true : false}/></Link>
+                <Link to="/contact"><Dot active={page === 'Contact' ? true : false}/></Link>
             </div>
         </ActivePageContainer>
     )
