@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { colors } from '../global';
@@ -59,22 +59,55 @@ const PageTitle = styled.p`
     margin-left: 50px;
 `;
 
-export default function Nav() {
-    return(
-        <>
-        <LogoContaier>
-            <Link to="/"><Logo src={logo}/></Link>
-        </LogoContaier>
-        <PageTitle>Page Title</PageTitle>
-        <Header>
-            <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/projects">Projects</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
-            </ul>
-        </Header>
-        <ActivePage/>
-        </>
-    );
+class Nav extends Component {
+    constructor() {
+        super();
+        this.state= { pageTitle: null };
+    }
+
+    setPageName = event => {
+        const loadTitle = () => {
+            if (window.location.pathname === "/projects") {
+                return 'Projects';
+              } else if (window.location.pathname === "/about") {
+                return 'About';
+              } else if (window.location.pathname === "/contact") {
+                return 'Contact';
+              } if (window.location.pathname === "/") {
+                return 'Home';
+              } else {
+                return '¯\\_(ツ)_/¯';
+              }
+        }
+
+        setInterval(() => {
+            this.setState( { pageTitle: loadTitle() } );
+        },1);
+    }
+
+    componentDidMount() {
+        this.setPageName();
+    }
+
+    render() {
+        return(
+            <React.Fragment>
+                <LogoContaier>
+                    <Link to="/"><Logo src={logo}/></Link>
+                </LogoContaier>
+                <PageTitle>{ this.state.pageTitle}</PageTitle>
+                <Header>
+                    <ul>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/projects">Projects</Link></li>
+                        <li><Link to="/about">About</Link></li>
+                        <li><Link to="/contact">Contact</Link></li>
+                    </ul>
+                </Header>
+                <ActivePage page={ this.props.pageTitle}/>
+            </React.Fragment>
+        );
+    }
 }
+
+export default Nav;
