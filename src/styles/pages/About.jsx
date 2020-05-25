@@ -9,6 +9,9 @@ import {
     PageContent as Content
 } from '../components/Main';
 
+// Components
+import Navbar from '../components/Navbar';
+
 /*
  * Unique component styles
  */
@@ -41,6 +44,8 @@ const Circle = styled.div`
 
 export default function About() {
     return (
+        <>
+        <Navbar />
         <Container>
             <Page>
                 <Content>
@@ -60,5 +65,6 @@ export default function About() {
                 </Content>
             </Page>
         </Container>
-    )
+        </>
+    );
 }

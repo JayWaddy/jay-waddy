@@ -11,6 +11,7 @@ import { colors } from '../global';
 
 // Components
 import Btn from '../components/Button';
+import Navbar from '../components/Navbar';
 
 /*
  * Unique component styles
@@ -74,6 +75,8 @@ const Button = styled.a`
 
 export default function Contact() {
     return (
+        <>
+        <Navbar />
         <Container>
             <Page>
                 <Content>
@@ -98,5 +101,6 @@ export default function Contact() {
                 </Content>
             </Page>
         </Container>
-    )
+        </>
+    );
 }

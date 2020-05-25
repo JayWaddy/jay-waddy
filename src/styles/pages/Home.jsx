@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 
+// Components
+import Navbar from '../components/Navbar';
+
 // Style
 import { 
     SiteContainer as Container, 
@@ -19,6 +22,8 @@ const HeroText = styled.div`
         margin: 0;
     }
 `;
+
+
 
 class Home extends Component {
     constructor() {
@@ -58,6 +63,8 @@ class Home extends Component {
 
     render() {
         return (
+            <>
+            <Navbar />
             <Container>
                 <Page>
                     <Content className="Home-container">
@@ -71,6 +78,7 @@ class Home extends Component {
                     </Content>
                 </Page>
             </Container>
+            </>
         );
     }
 }

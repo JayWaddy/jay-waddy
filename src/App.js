@@ -6,7 +6,6 @@ import { SiteContainer as Container, PageContainer as Page } from './styles/comp
 
 // Components
 // import Nav from './styles/components/Header';
-import Navbar from './styles/components/Navbar'
 import Home  from './styles/pages/Home';
 import Work  from './styles/pages/Work';
 import About  from './styles/pages/About';
@@ -20,7 +19,6 @@ class App extends Component {
         <Container>
           <Page>
             <Router>
-                <Navbar />
                 <Switch>
                 <Route exact path="/" component={Home}/>
                 <Route exact path="/work" component={Work}/>

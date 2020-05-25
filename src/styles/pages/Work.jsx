@@ -6,11 +6,16 @@ import {
     PageContent as Content
 } from '../components/Main';
 
+
+
 // Components
 import Card from '../components/Card';
+import Navbar from '../components/Navbar';
 
 export default function Work() {
     return (
+        <>
+        <Navbar />
         <Container>
             <Page>
                 <Content>
@@ -21,5 +26,6 @@ export default function Work() {
                 </Content>
             </Page>
         </Container>
-    )
+        </>
+    );
 }

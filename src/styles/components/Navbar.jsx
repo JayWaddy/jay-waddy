@@ -6,7 +6,8 @@ import styled, { css } from 'styled-components';
 import { colors } from '../global';
 
 import logo from '../../../src/img/logo.svg';
-import arrow from '../../../src/img/arrow.svg';
+import rightArrow from '../../../src/img/arrow_right.svg';
+import leftArrow from '../../../src/img/arrow_left.svg';
 
 const Main = styled.div`
     position: absolute;
@@ -159,10 +160,11 @@ export default class Navbar extends Component {
                         <li><NavLink to="/contact">Contact</NavLink></li>
                     </Ul>
                     <NextPage toggle={this.state.toggle}>
+                        { this.state.activePage === 'contact' || this.state.activePage === '404' ? <img src={ leftArrow } alt="arrow" /> : null  }
                         <NavLink to={this.state.nextPage}>
                             <span>{ this.generateNextPageText() }</span>
                         </NavLink>
-                        <img src={ arrow } alt="arrow"></img>
+                        { this.state.activePage === 'home' || this.state.activePage === 'work' || this.state.activePage === 'about' ? <img src={ rightArrow } alt="arrow" /> : null  }
                     </NextPage>
                     <Menu onClick={ this.toggle }>
                         <span></span>
@@ -171,6 +173,6 @@ export default class Navbar extends Component {
                     </Menu>
                 </Container>
             </Main>
-        )
+        );
     }
 }

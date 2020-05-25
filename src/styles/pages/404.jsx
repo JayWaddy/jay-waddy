@@ -10,7 +10,8 @@ import {
 } from '../components/Main';
 
 // Components
-import Button from '../components/Button'
+import Button from '../components/Button';
+import Navbar from '../components/Navbar';
 
 /*
  * Unique component styles
@@ -66,6 +67,8 @@ const ButtonSpacing = styled.div`
 
 export default function _404() {
     return (
+        <>
+        <Navbar />
         <Container>
             <Page>
                 <Content>
@@ -88,5 +91,6 @@ export default function _404() {
                 </Content>
             </Page>
         </Container>
-    )
+        </>
+    );
 }
