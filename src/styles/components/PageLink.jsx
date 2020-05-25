@@ -6,13 +6,18 @@ import styled from 'styled-components';
 import arrow from '../../img/arrow_right.svg';
 
 const Container = styled.div`
-    margin: 60px 0 0 auto;
+    display: flex;
+    margin: 30px 0 0 auto;
+
+    img {
+        margin-left: 10px;
+    }
 `;
 
-export default function PageLink({ page, message }) {
+export default function PageLink({ page, message, title }) {
     return (
         <Container>
-            <Link to={ page }>{ message }</Link>
+            <Link to={ page }>{ title ? <h2>{ message }</h2> : <span>{ message }</span> }</Link>
             <img src={ arrow } alt="arrow"/>
         </Container>
     );

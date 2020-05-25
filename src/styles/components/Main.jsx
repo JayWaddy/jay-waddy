@@ -9,7 +9,7 @@ const jostRegular = require('../../fonts/Jost-Regular.ttf');
 export const widthDiff = 60;
 
 export let containerWidth = 350;
-export let contentWidth = containerWidth - widthDiff;
+export let contentWidth = containerWidth;
 
 /*
  * Containers/wrappers
@@ -40,7 +40,6 @@ export const SiteContainer = styled.div`
 
     width: 100%;
     height: 100%;
-    background: ${ colors.background };
 
     p, h1, h2, a, div, small {
         font-family: 'Jost';
@@ -66,6 +65,11 @@ export const SiteContainer = styled.div`
         font-size: 34px;
         font-weight: normal;
     }
+
+    h2 {
+        font-size: 22px;
+        font-weight: normal;
+    }
 `;
 
 export const PageContainer = styled.section`
@@ -83,7 +87,6 @@ export const PageContent = styled.main`
 
     margin: 100px auto auto auto;
     width: ${ contentWidth }px;
-    overflow: hidden;
 `;
 
 // Home and 404 page will use this

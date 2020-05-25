@@ -10,7 +10,7 @@ import rightArrow from '../../../src/img/arrow_right.svg';
 import leftArrow from '../../../src/img/arrow_left.svg';
 
 const Main = styled.div`
-    position: absolute;
+    position: fixed;
     left: 0;
     bottom: 0;
 
@@ -41,6 +41,7 @@ const NextPage = styled.div`
     ${props => props.toggle && css`
         display: none;
     `}
+    
     span {
         margin: 0 10px;
     }
