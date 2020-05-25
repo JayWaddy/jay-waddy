@@ -95,7 +95,7 @@ class Nav extends Component {
                 <LogoContaier>
                     <Link to="/"><Logo src={logo}/></Link>
                 </LogoContaier>
-                <PageTitle>{ this.state.pageTitle}</PageTitle>
+                <PageTitle>Jay Waddy | { this.state.pageTitle}</PageTitle>
                 <Header>
                     <ul>
                         <li><Link to="/">Home</Link></li>

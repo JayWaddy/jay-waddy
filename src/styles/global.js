@@ -1,11 +1,8 @@
 // Colors
 export const colors = {
     // Default colors
-    black: '#000000',
-    white: '#ffffff',
-
-    primary: '',
-    secondary: '',
+    background: '#252525',
+    navbar: '#3a3a3a',
 
     // Theme colors
     yellow: '#ffff00',

@@ -10,7 +10,7 @@ import {
 import { colors } from '../global';
 
 // Components
-import Button from '../components/Button';
+import Btn from '../components/Button';
 
 /*
  * Unique component styles
@@ -68,7 +68,7 @@ const Circle = styled.div`
     `}
 `;
 
-const ButtonSpacing = styled.div`
+const Button = styled.a`
     margin: 60px 0 10px 0;
 `;
 
@@ -86,9 +86,9 @@ export default function Contact() {
                     <h1>Have an idea for a project?</h1>
                     <p>And some further elaboration goes in here.</p>
 
-                    <ButtonSpacing>
-                        <a href="mailto:waddylmt@gmail.com?subject=Let's%20Team%20Up!"><Button set="primary" text="Send an email" noLink></Button></a>
-                    </ButtonSpacing>
+                    <Button href="mailto:waddylmt@gmail.com?subject=Let's%20Team%20Up!">
+                        <Btn set="primary" text="Send an email" noLink />
+                    </Button>
 
                     <Assets>
                         <Circle social />

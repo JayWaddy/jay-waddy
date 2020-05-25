@@ -40,9 +40,9 @@ export const SiteContainer = styled.div`
 
     width: 100%;
     height: 100%;
-    background: ${ colors.black };
+    background: ${ colors.background };
 
-    p, button, h1, h2, a, div, small {
+    p, h1, h2, a, div, small {
         font-family: 'Jost';
         font-size: 12px;
         text-decoration: none;
@@ -105,7 +105,7 @@ export const Button = styled.button`
 
     span {
         position: relative;
-        color: ${ colors.black } !important;
+        color: black !important;
         z-index: 2;
     }
 
@@ -134,12 +134,12 @@ export const Button = styled.button`
         }
 
         background: ${ colors.magenta };
-        color: ${ colors.white };
+        color: white;
     `}
 
     ${props => props.secondary && css`
-        background: ${ colors.white };
-        color: ${ colors.black } !important;
+        background: white;
+        color: black !important;
     `}
 
     &:hover {

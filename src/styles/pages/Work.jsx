@@ -9,7 +9,7 @@ import {
 // Components
 import Card from '../components/Card';
 
-export default function Projects() {
+export default function Work() {
     return (
         <Container>
             <Page>

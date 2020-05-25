@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 
@@ -12,6 +12,8 @@ const ActivePageContainer = styled.div`
     height: 100%;
     z-index: 10;
 `;
+
+
 
 const Dot = styled.div`
     width: 1px;
@@ -30,15 +32,27 @@ const Dot = styled.div`
     `}
 `;
 
-export default function ActivePage({ page }) {
-    return (
-        <ActivePageContainer>
-            <div>
-                <Link to="/"><Dot active={page === 'Home' ? true : false}/></Link>
-                <Link to="/projects"><Dot active={page === 'Projects' ? true : false}/></Link>
-                <Link to="/about"><Dot active={page === 'About' ? true : false}/></Link>
-                <Link to="/contact"><Dot active={page === 'Contact' ? true : false}/></Link>
-            </div>
-        </ActivePageContainer>
-    )
+class ActivePage extends Component {
+    render() {
+        return (
+            <ActivePageContainer>
+                <div>
+                    <Link to="/">
+                        <Dot active={ this.props.page === 'Home' ? true : false }/>
+                    </Link>
+                    <Link to="/projects">
+                        <Dot active={ this.props.page === 'Projects' ? true : false }/>
+                    </Link>
+                    <Link to="/about">
+                        <Dot active={ this.props.page === 'About' ? true : false }/>
+                    </Link>
+                    <Link to="/contact">
+                        <Dot active={ this.props.page === 'Contact' ? true : false }/>
+                    </Link>
+                </div>
+            </ActivePageContainer>
+        );
+    }
 }
+
+export default ActivePage;

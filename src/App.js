@@ -5,9 +5,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { SiteContainer as Container, PageContainer as Page } from './styles/components/Main';
 
 // Components
-import Nav from './styles/components/Header';
+// import Nav from './styles/components/Header';
+import Navbar from './styles/components/Navbar'
 import Home  from './styles/pages/Home';
-import Projects  from './styles/pages/Projects';
+import Work  from './styles/pages/Work';
 import About  from './styles/pages/About';
 import Contact  from './styles/pages/Contact';
 import _404  from './styles/pages/404';
@@ -19,10 +20,10 @@ class App extends Component {
         <Container>
           <Page>
             <Router>
-                <Nav />
+                <Navbar />
                 <Switch>
                 <Route exact path="/" component={Home}/>
-                <Route exact path="/projects" component={Projects}/>
+                <Route exact path="/work" component={Work}/>
                 <Route exact path="/about" component={About}/>
                 <Route exact path="/contact" component={Contact}/>
                 <Route path="/" render={_404}/>
