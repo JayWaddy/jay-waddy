@@ -1,9 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 // Components
-import { colors } from '../global';
 import PageLink from '../components/PageLink';
 
 // Unique styles
@@ -13,7 +11,7 @@ const Container = styled.div`
 
 const Img = styled.div`
     width: 100%;
-    height: 200px;
+    height: 250px;
 
     background: gray;
 `;
@@ -31,7 +29,7 @@ export default function Project({title, description}) {
             <PageLink 
             page="work/project-01" 
             message="Live preview"
-            link
+            short
             />
         </Container>
     );

@@ -77,7 +77,7 @@ export const PageContainer = styled.section`
     flex-direction: column;
 
     width: ${ containerWidth }px;
-    height: 100vh;
+    height: 100%;
     margin: 0 auto;
 `;
 

@@ -20,6 +20,7 @@ const Main = styled.div`
 
     width: 100%;
     height: 75px;
+    z-index: 10;
 
     background: ${ colors.navbar };
 `;
@@ -38,6 +39,7 @@ const Logo = styled.img`
 `;
 
 const NextPage = styled.div`
+    display: flex;
     ${props => props.toggle && css`
         display: none;
     `}

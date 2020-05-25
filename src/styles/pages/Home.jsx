@@ -15,7 +15,7 @@ import {
 } from '../components/Main';
 import { animationSpeed, animationDelay, enter, exit } from '../animations';
 
-class Home extends Component {
+export default class Home extends Component {
     constructor() {
         super();
         this.state = {
@@ -61,11 +61,13 @@ class Home extends Component {
                         <img className="Home-anim-enter" src={ logo } alt="logo" width="150px"/>
                         <h1>Here's a description of what I do.</h1>
                         <p>A little more can go here if you want.</p>
-                        <PageLink page="work" message="Explore work"/>
+                        <Pad>
+                            <PageLink className="walk-through" page="work" message="Explore work"/>
+                        </Pad>
                     </Content>
                 </Page>
-                <BackgroundAnim />
             </Container>
+            <BackgroundAnim />
             </>
         );
     }
@@ -84,10 +86,15 @@ const Content = styled(PageContent)`
     }
 `;
 
+const Pad = styled.div`
+    margin-top: 60px;
+    margin-left: auto;
+`;
+
 const BackgroundAnim = styled.div`
     position: absolute;
     left: 0;
-    bottom: 100px;
+    bottom: -250px;
 
     width: 100%;
     height: 161px;
@@ -97,6 +104,7 @@ const BackgroundAnim = styled.div`
     background-repeat: repeat-x;
     opacity: 0.5;
 
+    /* transform: rotate(-8deg); */
     animation: scroll 3000ms linear infinite;
 
     @keyframes scroll {
@@ -108,5 +116,3 @@ const BackgroundAnim = styled.div`
         }
     }
 `;
-
-export default Home;
