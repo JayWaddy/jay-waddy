@@ -44,10 +44,13 @@ export const SiteContainer = styled.div`
 
     p, h1, h2, a, div, small {
         font-family: 'Jost';
-        font-size: 12px;
         text-decoration: none;
-        text-align: center;
+        text-align: left;
         color: white;
+    }
+
+    p {
+        font-size: 16px;
     }
 
     ul, li {
@@ -60,7 +63,8 @@ export const SiteContainer = styled.div`
 
     h1 {
         margin-bottom: 10px;
-        font-size: 18px;
+        font-size: 34px;
+        font-weight: normal;
     }
 `;
 

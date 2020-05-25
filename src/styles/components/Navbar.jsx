@@ -74,14 +74,6 @@ const Menu = styled.div`
     }
 `;
 
-// function Next() {
-
-// }
-
-// function Back() {
-    
-// }
-
 export default class Navbar extends Component {
     constructor() {
         super();

@@ -3,27 +3,17 @@ import styled, { css } from 'styled-components';
 
 // Components
 import Navbar from '../components/Navbar';
+import PageLink from '../components/PageLink';
+import background from '../../img/background.png';
+import logo from '../../img/logo_large.svg';
 
 // Style
 import { 
     SiteContainer as Container, 
     PageContainer as Page, 
-    PageContentCenter
+    PageContent
 } from '../components/Main';
-import Button from '../components/Button';
 import { animationSpeed, animationDelay, enter, exit } from '../animations';
-/*
- * Unique component styles
- */
-const HeroText = styled.div`
-    margin: 40px 0;
-
-    h1 {
-        margin: 0;
-    }
-`;
-
-
 
 class Home extends Component {
     constructor() {
@@ -68,22 +58,20 @@ class Home extends Component {
             <Container>
                 <Page>
                     <Content className="Home-container">
-                        <img className="Home-anim-enter" src={ require('../../img/logo.svg') } alt="logo" width="150px"/>
-                        <HeroText className="Home-anim-enter" delay>
-                            <h1>A short description of what I do.</h1>
-                            <h1>Maybe a little more here.</h1>
-                        </HeroText>
-                        <Button set="primary" text="Explore projects" link="/projects"/>
-                        <Button set="secondary" text="Let's team up" link="/contact"/>
+                        <img className="Home-anim-enter" src={ logo } alt="logo" width="150px"/>
+                        <h1>Here's a description of what I do.</h1>
+                        <p>A little more can go here if you want.</p>
+                        <PageLink page="work" message="Explore work"/>
                     </Content>
                 </Page>
+                <BackgroundAnim />
             </Container>
             </>
         );
     }
 }
 
-const Content = styled(PageContentCenter)`
+const Content = styled(PageContent)`
     .Home-anim-enter {
         animation: ${ enter } ${ animationSpeed }ms ease;
         animation-delay: ${ animationDelay }ms;
@@ -93,6 +81,31 @@ const Content = styled(PageContentCenter)`
             animation-delay: 1000ms;
             boder: solid red 1px;
         `}
+    }
+`;
+
+const BackgroundAnim = styled.div`
+    position: absolute;
+    left: 0;
+    bottom: 100px;
+
+    width: 100%;
+    height: 161px;
+
+    background-image: url( ${ background });
+    background-size: 100px 160px;
+    background-repeat: repeat-x;
+    opacity: 0.5;
+
+    animation: scroll 3000ms linear infinite;
+
+    @keyframes scroll {
+        from {
+            background-position-x: -100px;
+        }
+        to {
+            background-position-x: 0;
+        }
     }
 `;
 
