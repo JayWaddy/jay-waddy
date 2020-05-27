@@ -1,20 +1,16 @@
-import styled, { css } from 'styled-components';
-import { colors } from '../global';
+import styled from 'styled-components';
 
+// Fonts
 const jostBlack = require('../../fonts/Jost-Black.ttf');
 const jostBlackItalic = require('../../fonts/Jost-BlackItalic.ttf');
 const jostRegular = require('../../fonts/Jost-Regular.ttf');
 
-
+// Variables
 export const widthDiff = 60;
-
 export let containerWidth = 350;
 export let contentWidth = containerWidth;
 
-/*
- * Containers/wrappers
- */
-
+// Containers/wrappers
 export const SiteContainer = styled.div`
     @font-face {
         font-family: 'Jost';
@@ -85,71 +81,22 @@ export const PageContent = styled.main`
     display: flex;
     flex-direction: column;
 
-    margin: 100px auto auto auto;
+    margin: 50px auto auto auto;
     width: ${ contentWidth }px;
 `;
 
-// Home and 404 page will use this
-export const PageContentCenter = styled.main`
+export const fullWidth = styled.div`
+    position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
 
-    width: ${ contentWidth }px;
-    margin: auto;
-`;
+    width: 100%;
+    height: 100px;
+    margin-top: 60px;
 
-// Button
-export const Button = styled.button`
-    position: relative;
-    width: ${ contentWidth - widthDiff }px;
-
-    margin: 5px 0;
-    padding: 20px;
-    border-radius: 3px;
-    border: none;
-
-    span {
-        position: relative;
-        color: black !important;
-        z-index: 2;
-    }
-
-    ${props => props.primary && css`
-        &::after {
-            position: absolute;
-            top: 0;
-            left: 0;
-
-            content: '';
-            padding: 29px 112px;
-            border-radius: 3px;
-            background: ${ colors.cyan };
-        }
-
-        &::before {
-            position: absolute;
-            top: 0;
-            left: 0;
-
-            content: '';
-            padding: 29px 109px;
-            border-radius: 3px;
-            background: ${ colors.yellow };
-            z-index: 1;
-        }
-
-        background: ${ colors.magenta };
-        color: white;
-    `}
-
-    ${props => props.secondary && css`
-        background: white;
-        color: black !important;
-    `}
-
-    &:hover {
-        cursor: pointer;
+    img {
+        position: absolute;
+        width: 100vw;
+        height: 100%;
     }
 `;

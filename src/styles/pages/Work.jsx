@@ -25,9 +25,11 @@ export default function Work() {
                     <h1>A descriptive title for my work.</h1>
                     <p>Then some further explaination can go here. And here if the text needs to wrap.</p>
                     <Project 
+                    src={ null }
                     title="Project No. 1"
                     description="Then some further explaination can go here. And here if the text needs to wrap."/>
                     <Project 
+                    src={ null }
                     title="Project No. 2"
                     description="Then some further explaination can go here. And here if the text needs to wrap."/>
                 </Content>

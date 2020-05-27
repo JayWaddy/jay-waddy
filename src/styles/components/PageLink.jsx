@@ -24,13 +24,24 @@ const Container = styled.div`
 
 `;
 
-export default function PageLink({ page, message, title }) {
+export default function PageLink({ email, page, message, title }) {
+    const primaryLink = (
+        <Link to={ page }>
+            { title ? <h2>{ message }</h2> : <span>{ message }</span> }
+            <img src={ arrow } alt="arrow"/>
+        </Link>
+    );
+
+    const emailLink = (
+        <a href="mailto:waddylmt@gmail.com?subject=Let's%20Team%20Up!">
+            { title ? <h2>{ message }</h2> : <span>{ message }</span> }
+            <img src={ arrow } alt="arrow"/>
+        </a>
+    );
+
     return (
         <Container>
-            <Link to={ page }>
-                { title ? <h2>{ message }</h2> : <span>{ message }</span> }
-                <img src={ arrow } alt="arrow"/>
-            </Link>
+            { email ? emailLink : primaryLink }
         </Container>
     );
 }

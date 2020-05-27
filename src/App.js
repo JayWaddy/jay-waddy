@@ -12,26 +12,24 @@ import About  from './styles/pages/About';
 import Contact  from './styles/pages/Contact';
 import _404  from './styles/pages/404';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <>
-        <Container>
-          <Page>
-            <Router>
-                <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route exact path="/work" component={Work}/>
-                <Route exact path="/about" component={About}/>
-                <Route exact path="/contact" component={Contact}/>
-                <Route path="/" render={_404}/>
-              </Switch>
-            </Router>
-          </Page>
-        </Container>
+      <Container>
+        <Page>
+          <Router>
+            <Switch>
+              <Route exact path="/" component={Home}/>
+              <Route exact path="/work" component={Work}/>
+              <Route exact path="/about" component={About}/>
+              <Route exact path="/contact" component={Contact}/>
+              <Route path="/" render={_404}/>
+            </Switch>
+          </Router>
+        </Page>
+      </Container>
       </>
     );
   }
 }
-
-export default App;
