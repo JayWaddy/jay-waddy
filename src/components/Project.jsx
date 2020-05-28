@@ -16,9 +16,13 @@ const Img = styled.div`
     background: gray;
 `;
 
+// --------------
+// Default Export
+// --------------
+
 export default function Project({ src, title, description }) {
     return (
-        <Container>
+        <Container className="Project">
             <Img src={ src }/>
             <PageLink 
             page="work/project-01" 

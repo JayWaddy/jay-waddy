@@ -3,10 +3,15 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 // Components
-import arrow from '../../img/arrow_right.svg';
+import arrow from '../img/arrow_right.svg';
 
+
+// Unique Styles
 const Container = styled.div`
     display: flex;
+
+    width: 100%;
+    margin: 10px 0;
 
     a {
         display: flex;
@@ -14,15 +19,14 @@ const Container = styled.div`
         align-items: center;
     }
 
-    width: 100%;
-    margin: 10px 0;
-
-
     img {
         margin-left: 10px;
     }
-
 `;
+
+// --------------
+// Default Export
+// --------------
 
 export default function PageLink({ email, page, message, title }) {
     const primaryLink = (
@@ -40,7 +44,7 @@ export default function PageLink({ email, page, message, title }) {
     );
 
     return (
-        <Container>
+        <Container className="PageLink">
             { email ? emailLink : primaryLink }
         </Container>
     );

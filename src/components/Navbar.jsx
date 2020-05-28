@@ -3,12 +3,14 @@ import { Link as NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 // Style
-import { colors } from '../global';
+import { colors } from './Global';
 
-import logo from '../../../src/img/logo.svg';
-import rightArrow from '../../../src/img/arrow_right.svg';
-import leftArrow from '../../../src/img/arrow_left.svg';
+// Images
+import logo from '../img/logo.svg';
+import rightArrow from '../img/arrow_right.svg';
+import leftArrow from '../img/arrow_left.svg';
 
+// Unique Styles
 const Main = styled.div`
     position: fixed;
     left: 0;
@@ -77,6 +79,10 @@ const Menu = styled.div`
     }
 `;
 
+// --------------
+// Default Export
+// --------------
+
 export default class Navbar extends Component {
     constructor() {
         super();
@@ -139,8 +145,8 @@ export default class Navbar extends Component {
 
     render() {
         return (
-            <Main>
-                <Container>
+            <Main className="Navbar">
+                <Container >
                     <NavLink to="/">
                         <Logo 
                         src={ logo } 

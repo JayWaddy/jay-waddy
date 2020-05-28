@@ -1,16 +1,44 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 // Fonts
-const jostBlack = require('../../fonts/Jost-Black.ttf');
-const jostBlackItalic = require('../../fonts/Jost-BlackItalic.ttf');
-const jostRegular = require('../../fonts/Jost-Regular.ttf');
+const jostBlack = require('../fonts/Jost-Black.ttf');
+const jostBlackItalic = require('../fonts/Jost-BlackItalic.ttf');
+const jostRegular = require('../fonts/Jost-Regular.ttf');
 
-// Variables
-export const widthDiff = 60;
+// Global Variables
 export let containerWidth = 350;
-export let contentWidth = containerWidth;
+export const colors = {
+    background: '#252525',
+    navbar: '#3a3a3a'
+}
 
-// Containers/wrappers
+// -----------------
+// Global Components
+// -----------------
+
+export const GlobalStyle = createGlobalStyle`
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        position: relative;
+        background: ${colors.background};
+        overflow-x: hidden;
+    }
+
+    .PageLink-padding {
+        display: flex;
+        margin-top: 60px;
+
+        a {
+            margin-left: auto;
+        }
+    }
+`;
+
 export const SiteContainer = styled.div`
     @font-face {
         font-family: 'Jost';
@@ -68,7 +96,7 @@ export const SiteContainer = styled.div`
     }
 `;
 
-export const PageContainer = styled.section`
+export const PageContainer = styled.div`
     display: flex;
     flex-direction: column;
 
@@ -77,15 +105,15 @@ export const PageContainer = styled.section`
     margin: 0 auto;
 `;
 
-export const PageContent = styled.main`
+export const PageContent = styled.div`
     display: flex;
     flex-direction: column;
 
     margin: 50px auto auto auto;
-    width: ${ contentWidth }px;
+    width: ${ containerWidth }px;
 `;
 
-export const fullWidth = styled.div`
+export const FullWidth = styled.div`
     position: relative;
     display: flex;
     justify-content: center;
@@ -94,9 +122,8 @@ export const fullWidth = styled.div`
     height: 100px;
     margin-top: 60px;
 
-    img {
+    img, div {
         position: absolute;
         width: 100vw;
-        height: 100%;
     }
 `;
