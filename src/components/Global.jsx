@@ -8,8 +8,8 @@ const jostRegular = require('../fonts/Jost-Regular.ttf');
 // Global Variables
 export let containerWidth = 350;
 export const colors = {
-    background: '#252525',
-    navbar: '#3a3a3a'
+    background: '#1f1f1f',
+    navbar: '#2f2f2f'
 }
 
 // -----------------

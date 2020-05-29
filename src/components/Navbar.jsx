@@ -13,6 +13,8 @@ import leftArrow from '../img/arrow_left.svg';
 
 // Variaables
 const duration = 300;
+const easeQubic = 'cubic-bezier(0.87, 0, 0.13, 1)';
+const easeOut = 'cubic-bezier(0.16, 1, 0.3, 1)';
 
 // Unique Styles
 const NavbarContainer = styled.div`
@@ -30,45 +32,9 @@ const NavbarContainer = styled.div`
 
     background: ${ colors.navbar };
 
-    /* ------------*/
-    /* Logo--enter */
-    /* ------------*/
-
-    .Logo--enter {
-        opacity: 0;
-    }
-
-    .Logo--enter-active {
-        opacity: 1;
-        transition: opacity ${ duration }ms ease-out;
-    }
-
-    .Logo--enter-active-done {
-        /* Because this element enters to its default styles, */ 
-        /* there is no need for an -enter-done class.         */
-    }
-
-    /* ------------*/
-    /* Logo--enter */
-    /* ------------*/
-
-    .Logo--exit {
-        opacity: 1;
-    }
-
-    .Logo--exit-active {
-        opacity: 0;
-        transition: opacity ${ duration }ms ease-out;
-    }
-
-    .Logo--exit-active-done {
-        /* Because this element enters to its default styles, */ 
-        /* there is no need for an -enter-done class.         */
-    }
-
-    /* ------------------*/
-    /* Menu-icon--appear */
-    /* ------------------*/
+    /* ------------------*
+     * Menu-icon--appear *
+     * ------------------*/
 
     .Menu-icon--appear {
         .Menu-icon__open::before {
@@ -89,19 +55,19 @@ const NavbarContainer = styled.div`
         .Menu-icon__open::before {
             background: white;
             transform: translate(0, -8px);
-            transition: ${duration}ms ease-out;
+            transition: ${duration}ms ${ easeQubic };
             transition-delay: 0;
         }
         .Menu-icon__open {
             background: white;
             transform: translate(0, 0);
-            transition: ${duration}ms ease-out;
+            transition: ${duration}ms ${ easeQubic };
             transition-delay: 100ms;
         }
         .Menu-icon__open::after {
             background: white;
             transform: translate(0, 8px);
-            transition: ${duration}ms ease-out;
+            transition: ${duration}ms ${ easeQubic };
             transition-delay: 200ms;
         }
     }
@@ -125,13 +91,13 @@ const NavbarContainer = styled.div`
             background: white;
             transform: rotate(-45deg);
         }
-     }
+    }
 
     .Menu-icon--enter-active {
         .Menu-icon__open::before {
             background: white;
             transform: translate(0, -8px);
-            transition: ${duration}ms ease-out;
+            transition: ${duration}ms ${ easeQubic };
             transition-delay: 0;
         }
         .Menu-icon__open {
@@ -143,14 +109,13 @@ const NavbarContainer = styled.div`
         .Menu-icon__open::after {
             background: white;
             transform: translate(0, 8px);
-            transition: ${duration}ms ease-out;
+            transition: ${duration}ms ${ easeQubic };
             transition-delay: 100ms;
         }
     }
 
     .Menu-icon--enter-done {
-        /* Because this element enters to its default styles, 
-           there is no need for an -enter-done class.       */
+        /* Because this element enters to its default styles, there is no need for an -enter-done class.*/
     }
 
     /*
@@ -178,7 +143,7 @@ const NavbarContainer = styled.div`
         .Menu-icon__open::before {
             background: white;
             transform: rotate(45deg);
-            transition: ${duration}ms ease-out;
+            transition: ${duration}ms ${ easeQubic };
             transition-delay: 0;
         }
         .Menu-icon__open {
@@ -190,10 +155,10 @@ const NavbarContainer = styled.div`
         .Menu-icon__open::after {
             background: white;
             transform: rotate(-45deg);
-            transition: ${duration}ms ease-out;
+            transition: ${duration}ms ${ easeQubic };
             transition-delay: 100ms;
         }
-     }
+    }
 
      .Menu-icon--exit-done {
         .Menu-icon__open::before {
@@ -208,7 +173,172 @@ const NavbarContainer = styled.div`
             background: white;
             transform: rotate(-45deg);
         }
-     }
+    }
+
+    /* End of .Menu-icon ------------------------- */
+
+    /* --------------------------*
+     * .Navbar-background--appear *
+     * --------------------------*/
+    .Navbar-background--appear {
+        transform: translateX(0);
+    }
+
+    .Navbar-background--appear-active {
+        transform: translateX(100%);
+        transition: transform ${ duration }ms cubic-bezier(0.87, 0, 0.13, 1);
+    }
+
+    .Navbar-background--appear-done {
+        transform: translateX(100%);
+    }
+
+    /* --------------------------*
+     * .Navbar-background--enter *
+     * --------------------------*/
+    .Navbar-background--enter {
+        transform: translateX(100%);
+    }
+
+    .Navbar-background--enter-active {
+        transform: translateX(0);
+        transition: transform ${ duration }ms cubic-bezier(0.87, 0, 0.13, 1);
+    }
+
+    .Navbar-background--enter-done {
+        /* Because this element enters to its default styles, there is no need for an -enter-done class.*/
+    }
+
+    /* --------------------------*
+    * .Navbar-background--enter *
+    * --------------------------*/
+    .Navbar-background--exit {
+        transform: translateX(0);
+    }
+
+    .Navbar-background--exit-active {
+        transform: translateX(100%);
+        transition: transform ${ duration }ms cubic-bezier(0.87, 0, 0.13, 1);
+        transition-delay: 200ms;
+    }
+
+    .Navbar-background--exit-done {
+        /* Because this element enters to its default styles, there is no need for an -enter-done class.*/
+    }
+    /* End of .Navbar-background ---------- */
+
+    /* --------------------------*
+     * .Nav-menu--appear *
+     * --------------------------*/
+    .Nav-menu--appear {
+        
+    }
+
+    .Nav-menu--appear-active {
+        
+    }
+
+    .Nav-menu--appear-done {
+        
+    }
+
+    /* --------------------------*
+     * .Nav-menu--enter *
+     * --------------------------*/
+    .Nav-menu--enter {
+        ul li {
+            &:nth-child(1){
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            &:nth-child(2){
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            &:nth-child(3){
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            &:nth-child(4){
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+    }
+
+    .Nav-menu--enter-active {
+        ul li {
+            &:nth-child(1){
+                opacity: 1;
+                transform: translateY(0);
+                transition: opacity ${ duration }ms ease-out, transform ${ duration }ms ${ easeOut };
+                transition-delay: 250ms;
+            }
+            &:nth-child(2){
+                opacity: 1;
+                transform: translateY(0);
+                transition: opacity ${ duration }ms ease-out, transform ${ duration }ms ${ easeOut };
+                transition-delay: 200ms;
+            }
+            &:nth-child(3){
+                opacity: 1;
+                transform: translateY(0);
+                transition: opacity ${ duration }ms ease-out, transform ${ duration }ms ${ easeOut };
+                transition-delay: 150ms;
+            }
+            &:nth-child(4){
+                opacity: 1;
+                transform: translateY(0);
+                transition: opacity ${ duration }ms ease-out, transform ${ duration }ms ${ easeOut };
+                transition-delay: 100ms;
+            }
+        }
+    }
+
+    .Nav-menu--enter-done {
+        /* Because this element enters to its default styles, there is no need for an -enter-done class.*/
+    }
+
+    /* --------------------------*
+    * .Nav-menu--enter *
+    * --------------------------*/
+    .Nav-menu--exit {
+        
+    }
+
+    .Nav-menu--exit-active {
+        ul li {
+            &:nth-child(1){
+                opacity: 0;
+                transform: translateY(10px);
+                transition: opacity 100ms ease-in, transform ${ duration }ms ${ easeOut };
+                transition-delay: 100ms;
+            }
+            &:nth-child(2){
+                opacity: 0;
+                transform: translateY(10px);
+                transition: opacity 100ms ease-in, transform ${ duration }ms ${ easeOut };
+                transition-delay: 150ms;
+            }
+            &:nth-child(3){
+                opacity: 0;
+                transform: translateY(10px);
+                transition: opacity 100ms ease-in, transform ${ duration }ms ${ easeOut };
+                transition-delay: 200ms;
+            }
+            &:nth-child(4){
+                opacity: 0;
+                transform: translateY(10px);
+                transition: opacity 100ms ease-in, transform ${ duration }ms ${ easeOut };
+                transition-delay: 250ms;
+            }
+        }
+    }
+
+    .Nav-menu--exit-done {
+        /* Because this element enters to its default styles, there is no need for an -enter-done class.*/
+    }
+    /* End of .Nav-menu ---------- */
 `;
 
 const Content = styled.div`
@@ -220,10 +350,36 @@ const Content = styled.div`
     width: 350px;
     height: 20px;
 
-    .Logo {
+    .Nav-menu {
         position: absolute;
-        left: 0;
-        top: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        li {
+            margin: 0 15px;
+        }
+    }
+`;
+
+const Logo = styled.div`
+    position: absolute;
+    left: 0;
+    top: 0;
+`;
+
+const NavMenu = styled.nav`
+    position: absolute;
+    z-index: 10;
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        li {
+            margin: 0 15px;
+        }
     }
 `;
 
@@ -240,29 +396,16 @@ const NextPage = styled.div`
     }
 `;
 
-let Ul = styled.ul`
-    position: absolute;
-    display: none;
-
-    ${props => props.toggle && css`
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    `}
-
-    li {
-        margin: 0 15px;
-    }
-`;
-
-const Menu = styled.div`
+const MenuIcon = styled.div`
     position: absolute;
     right: 0;
+    z-index: 10;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
+    height: 20px;
     cursor: pointer;
 
     .Menu-icon__open {
@@ -290,6 +433,15 @@ const Menu = styled.div`
             transform: translateY(8px);
         }
     }
+`;
+
+const NavbarBackground = styled.div`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: '';
+
+    background: black;
 `;
 
 // --------------
@@ -365,46 +517,66 @@ export default class Navbar extends Component {
             <NavbarContainer className="Navbar">
                 <Content >
                     <NavLink to="/">
-                        <CSSTransition
-                        in={!this.state.toggle}
-                        timeout={ 300 }
-                        classNames="Logo-"
-                        unmountOnExit={ true }
-                        >
-                            <div className="Logo">
-                                <img src={ logo } alt="logo"/>
-                            </div>
-                        </CSSTransition>
+                        <Logo>
+                            <img src={ logo } alt="logo"/>
+                        </Logo>
                     </NavLink>
-                    <Ul toggle={this.state.toggle} >
-                        <li><NavLink to="/">Home</NavLink></li>
-                        <li><NavLink to="/work">Work</NavLink></li>
-                        <li><NavLink to="/about">About</NavLink></li>
-                        <li><NavLink to="/contact">Contact</NavLink></li>
-                    </Ul>
-                    <NextPage toggle={this.state.toggle}>
-                        { this.state.activePage === 'contact' || this.state.activePage === '404' ? <img src={ leftArrow } alt="arrow" /> : null  }
-                        <NavLink to={this.state.nextPage}>
-                            <span>{ this.generateNextPageText() }</span>
-                        </NavLink>
-                        { this.state.activePage === 'home' || this.state.activePage === 'work' || this.state.activePage === 'about' ? <img src={ rightArrow } alt="arrow" /> : null  }
-                    </NextPage>
 
-                    {/* Menu Icon */}
+                    <CSSTransition
+                    in={ this.state.toggle }
+                    timeout={ 500 }
+                    classNames="Nav-menu-"
+                    mountOnEnter={ true }
+                    unmountOnExit={ true }
+                    >
+                        <NavMenu>
+                            <ul>
+                                <li><NavLink to="/">Home</NavLink></li>
+                                <li><NavLink to="/work">Work</NavLink></li>
+                                <li><NavLink to="/about">About</NavLink></li>
+                                <li><NavLink to="/contact">Contact</NavLink></li>
+                            </ul>
+                        </NavMenu>
+                    </CSSTransition>
+
+                    <CSSTransition
+                    in={ !this.state.toggle }
+                    timeout={ 500 }
+                    classNames="Next-page-"
+                    mountOnEnter={ true }
+                    unmountOnExit={ true }
+                    >
+                        <NextPage>
+                            { this.state.activePage === 'contact' || this.state.activePage === '404' ? <img src={ leftArrow } alt="arrow" /> : null  }
+                            <NavLink to={ this.state.nextPage }>
+                                <span>{ this.generateNextPageText() }</span>
+                            </NavLink>
+                            { this.state.activePage === 'home' || this.state.activePage === 'work' || this.state.activePage === 'about' ? <img src={ rightArrow } alt="arrow" /> : null  }
+                        </NextPage>
+                    </CSSTransition>
+
                     <CSSTransition
                     in={!this.state.toggle}
                     timeout={ 500 }
                     classNames="Menu-icon-"
-                    // appear={true}
+                    appear={true}
                     >
-                        <Menu onClick={ this.switchMenu }>
+                        <MenuIcon onClick={ this.switchMenu }>
                             <span className="Menu-icon__open"></span>
-                            {/* <span></span>
-                            <span></span>
-                            <span></span> */}
-                        </Menu>
+                        </MenuIcon>
                     </CSSTransition>
                 </Content>
+
+                <CSSTransition
+                in={ this.state.toggle }
+                timeout={ 500 }
+                classNames="Navbar-background-"
+                mountOnEnter={ true }
+                unmountOnExit={ true }
+                appear={ true }
+                >
+                    <NavbarBackground />
+                </CSSTransition>
             </NavbarContainer>
         );
     }
