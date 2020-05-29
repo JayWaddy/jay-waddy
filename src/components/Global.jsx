@@ -29,6 +29,12 @@ export const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
     }
 
+    /*
+     * ----------------------
+     * Unique page animations
+     * ----------------------
+     */
+
     .PageLink-padding {
         display: flex;
         margin-top: 60px;
