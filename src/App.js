@@ -15,22 +15,40 @@ import Work  from './components/pages/Work';
 import About  from './components/pages/About';
 import Contact  from './components/pages/Contact';
 import PageNotFound  from './components/pages/PageNotFound';
+import Navbar from './components/Navbar';
 
 // --------------
 // Default Export
 // --------------
 
 export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      activePage: '',
+      nextPage: ''
+    }
+  }
+
+  routes = {
+    home: {
+      pathname: '/',
+      pageName: 'home'
+    }
+  }
+
   render() {
     return (
       <>
       <GlobalStyle />
+      
       <Container>
         <Page>
           <Content>
             <Router>
+            <Navbar />
               <Switch>
-                <Route exact path="/" component={ Home }/>
+                <Route exact path="/" component={ Home } />
                 <Route exact path="/work" component={ Work }/>
                 <Route exact path="/about" component={ About }/>
                 <Route exact path="/contact" component={ Contact }/>

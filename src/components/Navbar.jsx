@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link as NavLink } from 'react-router-dom';
-import styled, { css } from 'styled-components';
-import { CSSTransition } from 'react-transition-group';
+import styled from 'styled-components';
+import { SwitchTransition, CSSTransition } from 'react-transition-group';
 
 // Style
 import { colors } from './Global';
@@ -9,10 +9,9 @@ import { colors } from './Global';
 // Images
 import logo from '../img/logo.svg';
 import rightArrow from '../img/arrow_right.svg';
-import leftArrow from '../img/arrow_left.svg';
 
 // Variaables
-const duration = 300;
+const duration = 300 + 'ms';
 const easeQubic = 'cubic-bezier(0.87, 0, 0.13, 1)';
 const easeOut = 'cubic-bezier(0.16, 1, 0.3, 1)';
 
@@ -32,9 +31,81 @@ const NavbarContainer = styled.div`
 
     background: ${ colors.navbar };
 
-    /* ------------------*
-     * Menu-icon--appear *
-     * ------------------*/
+/* -------------------*
+ * .Next-page--appear *
+ * -------------------*/
+
+.Next-page--appear {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.Next-page--appear-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: ${ duration } ease;
+    transition-delay: 0;
+
+    
+}
+
+/* ------------------*
+ * .Next-page--enter *
+ * ------------------*/
+
+.Next-page--enter {
+    opacity: 0;
+    transform: translateX(-20px);
+    img {
+        opacity: 0;
+    }
+}
+
+.Next-page--enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: ${ duration } ease;
+
+    img {
+        opacity: 1;
+    }
+}
+
+.Next-page--enter-done {
+    img {
+        opacity: 1;
+        transition: ${ duration } ease;
+    }
+}
+
+/* -----------------*
+ * .Next-page--exit *
+ * -----------------*/
+
+.Next-page--exit {
+    opacity: 1;
+
+    img {
+        opacity: 1;
+    }
+}
+
+.Next-page--exit-active {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: ${ duration } ease;
+    transition-delay: 0;
+
+    img {
+        opacity: 0;
+        transition: ${ duration } ease;
+    }
+}
+/* End of .Next-Page ------------------------------------------- */
+
+/* ------------------*
+ * Menu-icon--appear *
+ * ------------------*/
 
     .Menu-icon--appear {
         .Menu-icon__open::before {
@@ -55,28 +126,26 @@ const NavbarContainer = styled.div`
         .Menu-icon__open::before {
             background: white;
             transform: translate(0, -8px);
-            transition: ${duration}ms ${ easeQubic };
+            transition: ${duration} ${ easeQubic };
             transition-delay: 0;
         }
         .Menu-icon__open {
             background: white;
             transform: translate(0, 0);
-            transition: ${duration}ms ${ easeQubic };
+            transition: ${duration} ${ easeQubic };
             transition-delay: 100ms;
         }
         .Menu-icon__open::after {
             background: white;
             transform: translate(0, 8px);
-            transition: ${duration}ms ${ easeQubic };
+            transition: ${duration} ${ easeQubic };
             transition-delay: 200ms;
         }
     }
 
-    /*
-     * --------------------
-     * Menu-icon--enter
-     * --------------------
-     */
+    /* -----------------*
+     * Menu-icon--enter *
+     * -----------------*/
 
     .Menu-icon--enter {
         .Menu-icon__open::before {
@@ -97,19 +166,19 @@ const NavbarContainer = styled.div`
         .Menu-icon__open::before {
             background: white;
             transform: translate(0, -8px);
-            transition: ${duration}ms ${ easeQubic };
+            transition: ${duration} ${ easeQubic };
             transition-delay: 0;
         }
         .Menu-icon__open {
             background: white;
             transform: translate(0, 0);
-            transition: ${duration}ms ease-out;
+            transition: ${duration} ease-out;
             transition-delay: 100ms;
         }
         .Menu-icon__open::after {
             background: white;
             transform: translate(0, 8px);
-            transition: ${duration}ms ${ easeQubic };
+            transition: ${duration} ${ easeQubic };
             transition-delay: 100ms;
         }
     }
@@ -143,19 +212,19 @@ const NavbarContainer = styled.div`
         .Menu-icon__open::before {
             background: white;
             transform: rotate(45deg);
-            transition: ${duration}ms ${ easeQubic };
+            transition: ${duration} ${ easeQubic };
             transition-delay: 0;
         }
         .Menu-icon__open {
             background: transparent;
             transform: translate(20, 0);
-            transition: ${duration}ms ease-out;
+            transition: ${duration} ease-out;
             transition-delay: 100ms;
         }
         .Menu-icon__open::after {
             background: white;
             transform: rotate(-45deg);
-            transition: ${duration}ms ${ easeQubic };
+            transition: ${duration} ${ easeQubic };
             transition-delay: 100ms;
         }
     }
@@ -186,7 +255,7 @@ const NavbarContainer = styled.div`
 
     .Navbar-background--appear-active {
         transform: translateX(100%);
-        transition: transform ${ duration }ms cubic-bezier(0.87, 0, 0.13, 1);
+        transition: transform ${ duration } cubic-bezier(0.87, 0, 0.13, 1);
     }
 
     .Navbar-background--appear-done {
@@ -202,7 +271,7 @@ const NavbarContainer = styled.div`
 
     .Navbar-background--enter-active {
         transform: translateX(0);
-        transition: transform ${ duration }ms cubic-bezier(0.87, 0, 0.13, 1);
+        transition: transform ${ duration } cubic-bezier(0.87, 0, 0.13, 1);
     }
 
     .Navbar-background--enter-done {
@@ -210,7 +279,7 @@ const NavbarContainer = styled.div`
     }
 
     /* --------------------------*
-    * .Navbar-background--enter *
+    * .Navbar-background--exit *
     * --------------------------*/
     .Navbar-background--exit {
         transform: translateX(0);
@@ -218,7 +287,7 @@ const NavbarContainer = styled.div`
 
     .Navbar-background--exit-active {
         transform: translateX(100%);
-        transition: transform ${ duration }ms cubic-bezier(0.87, 0, 0.13, 1);
+        transition: transform ${ duration } cubic-bezier(0.87, 0, 0.13, 1);
         transition-delay: 200ms;
     }
 
@@ -226,21 +295,6 @@ const NavbarContainer = styled.div`
         /* Because this element enters to its default styles, there is no need for an -enter-done class.*/
     }
     /* End of .Navbar-background ---------- */
-
-    /* --------------------------*
-     * .Nav-menu--appear *
-     * --------------------------*/
-    .Nav-menu--appear {
-        
-    }
-
-    .Nav-menu--appear-active {
-        
-    }
-
-    .Nav-menu--appear-done {
-        
-    }
 
     /* --------------------------*
      * .Nav-menu--enter *
@@ -271,25 +325,25 @@ const NavbarContainer = styled.div`
             &:nth-child(1){
                 opacity: 1;
                 transform: translateY(0);
-                transition: opacity ${ duration }ms ease-out, transform ${ duration }ms ${ easeOut };
+                transition: opacity ${ duration } ease-out, transform ${ duration } ${ easeOut };
                 transition-delay: 250ms;
             }
             &:nth-child(2){
                 opacity: 1;
                 transform: translateY(0);
-                transition: opacity ${ duration }ms ease-out, transform ${ duration }ms ${ easeOut };
+                transition: opacity ${ duration } ease-out, transform ${ duration } ${ easeOut };
                 transition-delay: 200ms;
             }
             &:nth-child(3){
                 opacity: 1;
                 transform: translateY(0);
-                transition: opacity ${ duration }ms ease-out, transform ${ duration }ms ${ easeOut };
+                transition: opacity ${ duration } ease-out, transform ${ duration } ${ easeOut };
                 transition-delay: 150ms;
             }
             &:nth-child(4){
                 opacity: 1;
                 transform: translateY(0);
-                transition: opacity ${ duration }ms ease-out, transform ${ duration }ms ${ easeOut };
+                transition: opacity ${ duration } ease-out, transform ${ duration } ${ easeOut };
                 transition-delay: 100ms;
             }
         }
@@ -311,25 +365,25 @@ const NavbarContainer = styled.div`
             &:nth-child(1){
                 opacity: 0;
                 transform: translateY(10px);
-                transition: opacity 100ms ease-in, transform ${ duration }ms ${ easeOut };
+                transition: opacity 100ms ease-in, transform ${ duration } ${ easeOut };
                 transition-delay: 100ms;
             }
             &:nth-child(2){
                 opacity: 0;
                 transform: translateY(10px);
-                transition: opacity 100ms ease-in, transform ${ duration }ms ${ easeOut };
+                transition: opacity 100ms ease-in, transform ${ duration } ${ easeOut };
                 transition-delay: 150ms;
             }
             &:nth-child(3){
                 opacity: 0;
                 transform: translateY(10px);
-                transition: opacity 100ms ease-in, transform ${ duration }ms ${ easeOut };
+                transition: opacity 100ms ease-in, transform ${ duration } ${ easeOut };
                 transition-delay: 200ms;
             }
             &:nth-child(4){
                 opacity: 0;
                 transform: translateY(10px);
-                transition: opacity 100ms ease-in, transform ${ duration }ms ${ easeOut };
+                transition: opacity 100ms ease-in, transform ${ duration } ${ easeOut };
                 transition-delay: 250ms;
             }
         }
@@ -387,12 +441,12 @@ const NextPage = styled.div`
     position: absolute;
     display: flex;
 
-    ${props => props.toggle && css`
-        display: none;
-    `}
-    
     span {
         margin: 0 10px;
+    }
+
+    img {
+        opacity: 0;
     }
 `;
 
@@ -453,124 +507,203 @@ export default class Navbar extends Component {
         super();
         this.state = {
             toggle: false,
-            menuClosed: true,
-            menuOpen: false,
             activePage: '',
-            nextPage: ''
+            nextPage: {
+                path: '',
+                message: ''
+            }
         }
     }
 
-    setActivePage = () => {
-        if (window.location.pathname === '/') {
-            this.setState({ activePage: 'home' });
-        } else if (window.location.pathname === '/work') {
-            this.setState({ activePage: 'work' });
-        } else if (window.location.pathname === '/about') {
-            this.setState({ activePage: 'about' });
-        } else if (window.location.pathname === '/contact') {
-            this.setState({ activePage: 'contact' });
+    pages = {
+        home: {
+            path: '/',
+            name: 'home',
+            message: 'Back to home page'
+        },
+        work: {
+            path: '/work',
+            name: 'work',
+            message: 'Explore work'
+        },
+        about: {
+            path: '/about',
+            name: 'about',
+            message: 'Get to know me'
+        },
+        contact: {
+            path: '/contact',
+            name: 'contact',
+            message: 'Let\'s team up'
+        },
+        pageNotFound: {
+            path: null,
+            name: '404',
+            message: null
+        }
+    }
+
+    pageList = [
+        this.pages.home.name,
+        this.pages.work.name,
+        this.pages.about.name,
+        this.pages.contact.name
+    ];
+
+    setPageProps = () => {
+        if (window.location.pathname === this.pages.home.path) {
+            this.setState({ 
+                activePage: this.pages.home.name,
+                nextPage: {
+                    path: this.pages.work.path,
+                    message: this.pages.work.message
+                }
+            });
+            return this.state.nextPage.message;
+        } else if (window.location.pathname === this.pages.work.path) {
+            this.setState({ 
+                activePage: this.pages.work.name,
+                nextPage: {
+                    path: this.pages.about.path,
+                    message: this.pages.about.message
+                }
+            });
+        } else if (window.location.pathname === this.pages.about.path) {
+            this.setState({ 
+                activePage: this.pages.about.name,
+                nextPage: {
+                    path: this.pages.contact.path,
+                    message: this.pages.contact.message
+                }
+            });
+        } else if (window.location.pathname === this.pages.contact.path) {
+            this.setState({ 
+                activePage: this.pages.contact.name,
+                nextPage: {
+                    path: this.pages.work.path,
+                    message: this.pages.work.message
+                }
+            });
         } else {
-            this.setState({ activePage: '404' });
+            this.setState({ 
+                activePage: this.pages.pageNotFound.name,
+                nextPage: {
+                    path: this.pages.home.path,
+                    message: this.pages.home.message
+                }  
+            });
         }
     }
 
-    setNextPage = () => {
-        if (window.location.pathname === '/' 
-        || window.location.pathname === '/contact') {
-            this.setState({ nextPage: 'work' });
-        } else if (window.location.pathname === '/work') {
-            this.setState({ nextPage: 'about' });
-        } else if (window.location.pathname === '/about') {
-            this.setState({ nextPage: 'contact' });
-        } else {
-            this.setState({ nextPage: '/' });
-        }
+    setPages = () => {
+        // Will set page props AFTER a link has been clicked
+        setTimeout(() => this.setPageProps(), 1);
     }
 
-    generateNextPageText = () => {
-        if (this.state.activePage === 'home' || this.state.activePage === 'contact') {
-            return 'Explore work';
-        } else if (this.state.activePage === 'work') {
-            return 'Get to know me';
-        } else if (this.state.activePage === 'about') {
-            return 'Let\'s team up';
-        } else {
-            return 'Go back to home page'
-        }
+    menuClick = () => {
+        this.toggleMenu();
+        this.setPages();
     }
 
-    switchMenu = () => {
+    toggleMenu = () => {
         this.setState(
             { 
                 toggle: !this.state.toggle
              }
         );
     }
+
+    menuItems = this.pageList.map(page => (
+        <li>
+            <NavLink 
+            to={{ 
+                pathname: page && page !== 'home' ? page : '/',
+                state: this.pages
+            }}
+            onClick={ this.menuClick }
+            >
+                { page.charAt(0).toUpperCase() + page.slice(1) }
+            </NavLink>
+        </li>
+    ));
     
     componentDidMount() {
-        this.setActivePage();
-        this.setNextPage();
+        this.setPageProps();
     }
 
     render() {
         return (
             <NavbarContainer className="Navbar">
                 <Content >
+                
+                   { /* Logo component */}
+
                     <NavLink to="/">
                         <Logo>
-                            <img src={ logo } alt="logo"/>
+                            <img 
+                            src={ logo } 
+                            alt="logo"
+                            onClick={ this.setPages }
+                            />
                         </Logo>
                     </NavLink>
 
+                    { /* Navbar__menu component */}
+
                     <CSSTransition
+                    classNames={ "Nav-menu-" }
                     in={ this.state.toggle }
                     timeout={ 500 }
-                    classNames="Nav-menu-"
                     mountOnEnter={ true }
                     unmountOnExit={ true }
                     >
                         <NavMenu>
                             <ul>
-                                <li><NavLink to="/">Home</NavLink></li>
-                                <li><NavLink to="/work">Work</NavLink></li>
-                                <li><NavLink to="/about">About</NavLink></li>
-                                <li><NavLink to="/contact">Contact</NavLink></li>
+                                { this.menuItems }
                             </ul>
                         </NavMenu>
                     </CSSTransition>
 
-                    <CSSTransition
-                    in={ !this.state.toggle }
-                    timeout={ 500 }
-                    classNames="Next-page-"
-                    mountOnEnter={ true }
-                    unmountOnExit={ true }
-                    >
-                        <NextPage>
-                            { this.state.activePage === 'contact' || this.state.activePage === '404' ? <img src={ leftArrow } alt="arrow" /> : null  }
-                            <NavLink to={ this.state.nextPage }>
-                                <span>{ this.generateNextPageText() }</span>
-                            </NavLink>
-                            { this.state.activePage === 'home' || this.state.activePage === 'work' || this.state.activePage === 'about' ? <img src={ rightArrow } alt="arrow" /> : null  }
-                        </NextPage>
-                    </CSSTransition>
+                    { /* Navbar__next-page component */}
+
+                    <SwitchTransition>
+                        <CSSTransition
+                        classNames={ "Next-page-" }
+                        key={ this.state.nextPage.path }
+                        timeout={ 500 }
+                        mountOnEnter={ true }
+                        >
+                            <NextPage>
+                                <NavLink 
+                                to={ this.state.nextPage.path }
+                                onClick={ this.setPages }
+                                >
+                                    <span>{ this.state.nextPage.message }</span>
+                                    <img src={ rightArrow } alt="arrow" />
+                                </NavLink>
+                            </NextPage>
+                        </CSSTransition>
+                    </SwitchTransition>
+
+                    { /* Navbar__menu-icon component */}
 
                     <CSSTransition
+                    classNames={ "Menu-icon-" }
                     in={!this.state.toggle}
                     timeout={ 500 }
-                    classNames="Menu-icon-"
-                    appear={true}
                     >
-                        <MenuIcon onClick={ this.switchMenu }>
-                            <span className="Menu-icon__open"></span>
+                        <MenuIcon onClick={ this.toggleMenu }>
+                            <span className={ "Menu-icon__open" }></span>
                         </MenuIcon>
                     </CSSTransition>
                 </Content>
+                
+                { /* Navbar__background component */}
 
                 <CSSTransition
+                classNames={ "Navbar-background-" }
                 in={ this.state.toggle }
                 timeout={ 500 }
-                classNames="Navbar-background-"
                 mountOnEnter={ true }
                 unmountOnExit={ true }
                 appear={ true }

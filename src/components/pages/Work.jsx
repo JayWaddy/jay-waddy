@@ -2,14 +2,10 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 // Components
-import { 
-    PageContent
-} from '../Global';
 import Project from '../Project';
-import Navbar from '../Navbar';
 
 // Unique styles
-const Content = styled(PageContent)`
+const Content = styled.div`
     padding-bottom: 300px;
 `;
 
@@ -21,7 +17,6 @@ export default class Work extends Component {
     render() {
         return (
             <main className="Work">
-                <Navbar />
                 <Content>
                     <h1>A descriptive title for my work.</h1>
                     <p>Then some further explaination can go here. And here if the text needs to wrap.</p>

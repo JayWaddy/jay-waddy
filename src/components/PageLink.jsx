@@ -31,7 +31,7 @@ const Container = styled.div`
 export default function PageLink({ email, page, message, title }) {
     const primaryLink = (
         <Link to={ page }>
-            { title ? <h2>{ message }</h2> : <span>{ message }</span> }
+            { title ? <h1>{ message }</h1> : <span>{ message }</span> }
             <img src={ arrow } alt="arrow"/>
         </Link>
     );

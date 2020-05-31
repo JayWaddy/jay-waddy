@@ -2,30 +2,26 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 // Components
-import Navbar from '../Navbar';
-import PageLink from '../PageLink';
-import background from '../../img/background.png';
 import logo from '../../img/logo_large.svg';
+import BackgroundAnimation from '../BackgroundAnimation';
 
-// Style
-import { FullWidth as Full } from '../Global';
+const Tip = styled.div`
+    margin-top: 60px;
+    opacity: 0.35;
 
-const BackgroundAnim = styled.div`
-    height: 160px;
+    .Tip--animation {
+        animation: bobble 2000ms infinite cubic-bezier(0.45, 0, 0.55, 1);
 
-    background-image: url( ${ background } );
-    background-size: 100px 160px;
-    background-repeat: repeat-x;
-    opacity: 0.5;
-
-    animation: scroll 3000ms linear infinite;
-
-    @keyframes scroll {
-        from {
-            background-position-x: -100px;
-        }
-        to {
-            background-position-x: 0;
+        @keyframes bobble {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
         }
     }
 `;
@@ -38,18 +34,14 @@ export default class Home extends Component {
     render() {
         return (
             <main className="Home">
-                <Navbar />
                 <img src={ logo } alt="logo" width="150px"/>
                 <h1>Here's a description of what I do.</h1>
-                <p>A little more can go here if you want.</p>
-
-                <div className="PageLink-padding">
-                    <PageLink page="work" message="Explore work"/>
-                </div>
                 
-                <Full>
-                    <BackgroundAnim />
-                </Full>
+                <Tip>
+                    <p className="Tip--animation">Tap the link in the navbar.</p>
+                </Tip>
+
+                <BackgroundAnimation />
             </main>
         );
     }
