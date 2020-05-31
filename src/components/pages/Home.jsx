@@ -33,7 +33,7 @@ const Tip = styled.div`
 export default class Home extends Component {
     render() {
         return (
-            <main className="Home">
+            <section className="Page__Home">
                 <img src={ logo } alt="logo" width="150px"/>
                 <h1>Here's a description of what I do.</h1>
                 
@@ -42,7 +42,7 @@ export default class Home extends Component {
                 </Tip>
 
                 <BackgroundAnimation />
-            </main>
+            </section>
         );
     }
 }

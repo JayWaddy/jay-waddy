@@ -16,7 +16,7 @@ const easeQubic = 'cubic-bezier(0.87, 0, 0.13, 1)';
 const easeOut = 'cubic-bezier(0.16, 1, 0.3, 1)';
 
 // Unique Styles
-const NavbarContainer = styled.div`
+const NavbarContainer = styled.header`
     position: fixed;
     left: 0;
     bottom: 0;
@@ -101,298 +101,272 @@ const NavbarContainer = styled.div`
         transition: ${ duration } ease;
     }
 }
-/* End of .Next-Page ------------------------------------------- */
+/* End of .Next-Page -------------------------------- */
 
 /* ------------------*
  * Menu-icon--appear *
  * ------------------*/
 
-    .Menu-icon--appear {
-        .Menu-icon__open::before {
-            background: transparent;
-            transform: translate(-20px, -8px);
-        }
-        .Menu-icon__open {
-            background: transparent;
-            transform: translate(20px, 0);
-        }
-        .Menu-icon__open::after {
-            background: transparent;
-            transform: translate(20px, 8px);
-        } 
+.Menu-icon--appear {
+    .Menu-icon__open::before {
+        background: transparent;
+        transform: translate(-20px, -8px);
     }
-
-    .Menu-icon--appear-active {
-        .Menu-icon__open::before {
-            background: white;
-            transform: translate(0, -8px);
-            transition: ${duration} ${ easeQubic };
-            transition-delay: 0;
-        }
-        .Menu-icon__open {
-            background: white;
-            transform: translate(0, 0);
-            transition: ${duration} ${ easeQubic };
-            transition-delay: 100ms;
-        }
-        .Menu-icon__open::after {
-            background: white;
-            transform: translate(0, 8px);
-            transition: ${duration} ${ easeQubic };
-            transition-delay: 200ms;
-        }
+    .Menu-icon__open {
+        background: transparent;
+        transform: translate(20px, 0);
     }
+    .Menu-icon__open::after {
+        background: transparent;
+        transform: translate(20px, 8px);
+    } 
+}
 
-    /* -----------------*
-     * Menu-icon--enter *
-     * -----------------*/
-
-    .Menu-icon--enter {
-        .Menu-icon__open::before {
-            background: white;
-            transform: rotate(45deg);
-        }
-        .Menu-icon__open {
-            background: transparent;
-            transform: translate(20, 0);
-        }
-        .Menu-icon__open::after {
-            background: white;
-            transform: rotate(-45deg);
-        }
+.Menu-icon--appear-active {
+    .Menu-icon__open::before {
+        background: white;
+        transform: translate(0, -8px);
+        transition: ${duration} ${ easeQubic };
+        transition-delay: 0;
     }
-
-    .Menu-icon--enter-active {
-        .Menu-icon__open::before {
-            background: white;
-            transform: translate(0, -8px);
-            transition: ${duration} ${ easeQubic };
-            transition-delay: 0;
-        }
-        .Menu-icon__open {
-            background: white;
-            transform: translate(0, 0);
-            transition: ${duration} ease-out;
-            transition-delay: 100ms;
-        }
-        .Menu-icon__open::after {
-            background: white;
-            transform: translate(0, 8px);
-            transition: ${duration} ${ easeQubic };
-            transition-delay: 100ms;
-        }
+    .Menu-icon__open {
+        background: white;
+        transform: translate(0, 0);
+        transition: ${duration} ${ easeQubic };
+        transition-delay: 100ms;
     }
-
-    .Menu-icon--enter-done {
-        /* Because this element enters to its default styles, there is no need for an -enter-done class.*/
-    }
-
-    /*
-     * --------------------
-     * Menu-icon--exit
-     * --------------------
-     */
-    
-    .Menu-icon--exit {
-        .Menu-icon__open::before {
-            background: white;
-            transform: translate(0, -8px);
-        }
-        .Menu-icon__open {
-            background: white;
-            transform: translate(0, 0);
-        }
-        .Menu-icon__open::after {
-            background: white;
-            transform: translate(0, 8px);
-        }
-    }
-
-    .Menu-icon--exit-active {
-        .Menu-icon__open::before {
-            background: white;
-            transform: rotate(45deg);
-            transition: ${duration} ${ easeQubic };
-            transition-delay: 0;
-        }
-        .Menu-icon__open {
-            background: transparent;
-            transform: translate(20, 0);
-            transition: ${duration} ease-out;
-            transition-delay: 100ms;
-        }
-        .Menu-icon__open::after {
-            background: white;
-            transform: rotate(-45deg);
-            transition: ${duration} ${ easeQubic };
-            transition-delay: 100ms;
-        }
-    }
-
-     .Menu-icon--exit-done {
-        .Menu-icon__open::before {
-            background: white;
-            transform: rotate(45deg);
-        }
-        .Menu-icon__open {
-            background: transparent;
-            transform: translate(20, 0);
-        }
-        .Menu-icon__open::after {
-            background: white;
-            transform: rotate(-45deg);
-        }
-    }
-
-    /* End of .Menu-icon ------------------------- */
-
-    /* --------------------------*
-     * .Navbar-background--appear *
-     * --------------------------*/
-    .Navbar-background--appear {
-        transform: translateX(0);
-    }
-
-    .Navbar-background--appear-active {
-        transform: translateX(100%);
-        transition: transform ${ duration } cubic-bezier(0.87, 0, 0.13, 1);
-    }
-
-    .Navbar-background--appear-done {
-        transform: translateX(100%);
-    }
-
-    /* --------------------------*
-     * .Navbar-background--enter *
-     * --------------------------*/
-    .Navbar-background--enter {
-        transform: translateX(100%);
-    }
-
-    .Navbar-background--enter-active {
-        transform: translateX(0);
-        transition: transform ${ duration } cubic-bezier(0.87, 0, 0.13, 1);
-    }
-
-    .Navbar-background--enter-done {
-        /* Because this element enters to its default styles, there is no need for an -enter-done class.*/
-    }
-
-    /* --------------------------*
-    * .Navbar-background--exit *
-    * --------------------------*/
-    .Navbar-background--exit {
-        transform: translateX(0);
-    }
-
-    .Navbar-background--exit-active {
-        transform: translateX(100%);
-        transition: transform ${ duration } cubic-bezier(0.87, 0, 0.13, 1);
+    .Menu-icon__open::after {
+        background: white;
+        transform: translate(0, 8px);
+        transition: ${duration} ${ easeQubic };
         transition-delay: 200ms;
     }
+}
 
-    .Navbar-background--exit-done {
-        /* Because this element enters to its default styles, there is no need for an -enter-done class.*/
+/* -----------------*
+ * Menu-icon--enter *
+ * -----------------*/
+
+.Menu-icon--enter {
+    .Menu-icon__open::before {
+        background: white;
+        transform: rotate(45deg);
     }
-    /* End of .Navbar-background ---------- */
+    .Menu-icon__open {
+        background: transparent;
+        transform: translate(20, 0);
+    }
+    .Menu-icon__open::after {
+        background: white;
+        transform: rotate(-45deg);
+    }
+}
 
-    /* --------------------------*
-     * .Nav-menu--enter *
-     * --------------------------*/
-    .Nav-menu--enter {
-        ul li {
-            &:nth-child(1){
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            &:nth-child(2){
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            &:nth-child(3){
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            &:nth-child(4){
-                opacity: 0;
-                transform: translateY(-20px);
-            }
+.Menu-icon--enter-active {
+    .Menu-icon__open::before {
+        background: white;
+        transform: translate(0, -8px);
+        transition: ${duration} ${ easeQubic };
+        transition-delay: 0;
+    }
+    .Menu-icon__open {
+        background: white;
+        transform: translate(0, 0);
+        transition: ${duration} ease-out;
+        transition-delay: 100ms;
+    }
+    .Menu-icon__open::after {
+        background: white;
+        transform: translate(0, 8px);
+        transition: ${duration} ${ easeQubic };
+        transition-delay: 100ms;
+    }
+}
+
+/* ----------------*
+ * Menu-icon--exit *
+ * ----------------*/
+    
+.Menu-icon--exit {
+    .Menu-icon__open::before {
+        background: white;
+        transform: translate(0, -8px);
+    }
+    .Menu-icon__open {
+        background: white;
+        transform: translate(0, 0);
+    }
+    .Menu-icon__open::after {
+        background: white;
+        transform: translate(0, 8px);
+    }
+}
+
+.Menu-icon--exit-active {
+    .Menu-icon__open::before {
+        background: white;
+        transform: rotate(45deg);
+        transition: ${duration} ${ easeQubic };
+        transition-delay: 0;
+    }
+    .Menu-icon__open {
+        background: transparent;
+        transform: translate(20, 0);
+        transition: ${duration} ease-out;
+        transition-delay: 100ms;
+    }
+    .Menu-icon__open::after {
+        background: white;
+        transform: rotate(-45deg);
+        transition: ${duration} ${ easeQubic };
+        transition-delay: 100ms;
+    }
+}
+
+    .Menu-icon--exit-done {
+    .Menu-icon__open::before {
+        background: white;
+        transform: rotate(45deg);
+    }
+    .Menu-icon__open {
+        background: transparent;
+        transform: translate(20, 0);
+    }
+    .Menu-icon__open::after {
+        background: white;
+        transform: rotate(-45deg);
+    }
+}
+
+/* End of .Menu-icon ------------------------------ */
+
+/* ---------------------------*
+ * .Navbar-background--appear *
+ * ---------------------------*/
+.Navbar-background--appear {
+    transform: translateX(0);
+}
+
+.Navbar-background--appear-active {
+    transform: translateX(100%);
+    transition: transform ${ duration } cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+.Navbar-background--appear-done {
+    transform: translateX(100%);
+}
+
+/* --------------------------*
+ * .Navbar-background--enter *
+ * --------------------------*/
+.Navbar-background--enter {
+    transform: translateX(100%);
+}
+
+.Navbar-background--enter-active {
+    transform: translateX(0);
+    transition: transform ${ duration } cubic-bezier(0.87, 0, 0.13, 1);
+}
+
+/* -------------------------*
+ * .Navbar-background--exit *
+ * -------------------------*/
+.Navbar-background--exit {
+    transform: translateX(0);
+}
+
+.Navbar-background--exit-active {
+    transform: translateX(100%);
+    transition: transform ${ duration } cubic-bezier(0.87, 0, 0.13, 1);
+    transition-delay: 200ms;
+}
+/* End of .Navbar-background ---------- */
+
+/* --------------------------*
+ * .Nav-menu--enter *
+ * --------------------------*/
+.Nav-menu--enter {
+    ul li {
+        &:nth-child(1){
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        &:nth-child(2){
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        &:nth-child(3){
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        &:nth-child(4){
+            opacity: 0;
+            transform: translateY(-20px);
         }
     }
+}
 
-    .Nav-menu--enter-active {
-        ul li {
-            &:nth-child(1){
-                opacity: 1;
-                transform: translateY(0);
-                transition: opacity ${ duration } ease-out, transform ${ duration } ${ easeOut };
-                transition-delay: 250ms;
-            }
-            &:nth-child(2){
-                opacity: 1;
-                transform: translateY(0);
-                transition: opacity ${ duration } ease-out, transform ${ duration } ${ easeOut };
-                transition-delay: 200ms;
-            }
-            &:nth-child(3){
-                opacity: 1;
-                transform: translateY(0);
-                transition: opacity ${ duration } ease-out, transform ${ duration } ${ easeOut };
-                transition-delay: 150ms;
-            }
-            &:nth-child(4){
-                opacity: 1;
-                transform: translateY(0);
-                transition: opacity ${ duration } ease-out, transform ${ duration } ${ easeOut };
-                transition-delay: 100ms;
-            }
+.Nav-menu--enter-active {
+    ul li {
+        &:nth-child(1){
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity ${ duration } ease-out, transform ${ duration } ${ easeOut };
+            transition-delay: 250ms;
+        }
+        &:nth-child(2){
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity ${ duration } ease-out, transform ${ duration } ${ easeOut };
+            transition-delay: 200ms;
+        }
+        &:nth-child(3){
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity ${ duration } ease-out, transform ${ duration } ${ easeOut };
+            transition-delay: 150ms;
+        }
+        &:nth-child(4){
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity ${ duration } ease-out, transform ${ duration } ${ easeOut };
+            transition-delay: 100ms;
         }
     }
+}
 
-    .Nav-menu--enter-done {
-        /* Because this element enters to its default styles, there is no need for an -enter-done class.*/
-    }
-
-    /* --------------------------*
-    * .Nav-menu--enter *
-    * --------------------------*/
-    .Nav-menu--exit {
-        
-    }
-
-    .Nav-menu--exit-active {
-        ul li {
-            &:nth-child(1){
-                opacity: 0;
-                transform: translateY(10px);
-                transition: opacity 100ms ease-in, transform ${ duration } ${ easeOut };
-                transition-delay: 100ms;
-            }
-            &:nth-child(2){
-                opacity: 0;
-                transform: translateY(10px);
-                transition: opacity 100ms ease-in, transform ${ duration } ${ easeOut };
-                transition-delay: 150ms;
-            }
-            &:nth-child(3){
-                opacity: 0;
-                transform: translateY(10px);
-                transition: opacity 100ms ease-in, transform ${ duration } ${ easeOut };
-                transition-delay: 200ms;
-            }
-            &:nth-child(4){
-                opacity: 0;
-                transform: translateY(10px);
-                transition: opacity 100ms ease-in, transform ${ duration } ${ easeOut };
-                transition-delay: 250ms;
-            }
+/* --------------------------*
+ * .Nav-menu--enter *
+ * --------------------------*/
+.Nav-menu--exit-active {
+    ul li {
+        &:nth-child(1){
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 100ms ease-in, transform ${ duration } ${ easeOut };
+            transition-delay: 100ms;
+        }
+        &:nth-child(2){
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 100ms ease-in, transform ${ duration } ${ easeOut };
+            transition-delay: 150ms;
+        }
+        &:nth-child(3){
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 100ms ease-in, transform ${ duration } ${ easeOut };
+            transition-delay: 200ms;
+        }
+        &:nth-child(4){
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 100ms ease-in, transform ${ duration } ${ easeOut };
+            transition-delay: 250ms;
         }
     }
-
-    .Nav-menu--exit-done {
-        /* Because this element enters to its default styles, there is no need for an -enter-done class.*/
-    }
-    /* End of .Nav-menu ---------- */
+}
+/* End of .Nav-menu ---------- */
 `;
 
 const Content = styled.div`

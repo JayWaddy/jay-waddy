@@ -16,7 +16,7 @@ const Content = styled.div`
 export default class Work extends Component {
     render() {
         return (
-            <main className="Work">
+            <section className="Page__Work">
                 <Content>
                     <h1>A descriptive title for my work.</h1>
                     <p>Then some further explaination can go here. And here if the text needs to wrap.</p>
@@ -29,7 +29,7 @@ export default class Work extends Component {
                     title="Project No. 2"
                     description="Then some further explaination can go here. And here if the text needs to wrap."/>
                 </Content>
-            </main>
+            </section>
         );
     }
 }

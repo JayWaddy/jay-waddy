@@ -6,7 +6,7 @@ const jostBlackItalic = require('../fonts/Jost-BlackItalic.ttf');
 const jostRegular = require('../fonts/Jost-Regular.ttf');
 
 // Global Variables
-export let containerWidth = 350;
+export let containerWidth = 350 + 'px';
 export const colors = {
     background: '#1f1f1f',
     navbar: '#2f2f2f'
@@ -25,24 +25,54 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         position: relative;
+        width: 100vw;
         background: ${colors.background};
         overflow-x: hidden;
     }
 
-    /*
-     * ----------------------
-     * Unique page animations
-     * ----------------------
-     */
+/* -----------------*
+ * Main Page Styles *
+ * -----------------*/   
 
-    .PageLink-padding {
-        display: flex;
-        margin-top: 60px;
+.Page__Home,
+.Page__Work,
+.Page__About,
+.Page__Contact,
+.Page__404 {
+    position: absolute;
+    width: ${ containerWidth };
+}
 
-        a {
-            margin-left: auto;
-        }
+.Page--exit-active {
+    opacity: 0;
+    /* transform: translateY(50%); */
+    transition: 300ms ease;
+}
+
+.Page--enter {
+    opacity: 0;
+    /* transform: translateY(-50%); */
+}
+
+.Page--enter-active {
+    opacity: 1;
+    /* transform: translateY(0); */
+    transition: 300ms ease;
+    transition-delay: 200ms;
+}
+
+/* -----------------------*
+ * Unique Component Styles *
+ * -----------------------*/
+
+.PageLink-padding {
+    display: flex;
+    margin-top: 60px;
+
+    a {
+        margin-left: auto;
     }
+}
 `;
 
 export const SiteContainer = styled.div`
@@ -65,6 +95,7 @@ export const SiteContainer = styled.div`
         font-weight: normal;
     }
 
+    position: relative;
     display: flex;
     flex-direction: column;
 
@@ -106,7 +137,7 @@ export const PageContainer = styled.div`
     display: flex;
     flex-direction: column;
 
-    width: ${ containerWidth }px;
+    width: ${ containerWidth };
     height: 100%;
     margin: 0 auto;
 `;
@@ -116,7 +147,7 @@ export const PageContent = styled.div`
     flex-direction: column;
 
     margin: 50px auto auto auto;
-    width: ${ containerWidth }px;
+    width: ${ containerWidth };
 `;
 
 export const FullWidth = styled.div`

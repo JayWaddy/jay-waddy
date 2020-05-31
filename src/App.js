@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 // Style
 import { 
@@ -47,13 +48,25 @@ export default class App extends Component {
           <Content>
             <Router>
             <Navbar />
-              <Switch>
-                <Route exact path="/" component={ Home } />
-                <Route exact path="/work" component={ Work }/>
-                <Route exact path="/about" component={ About }/>
-                <Route exact path="/contact" component={ Contact }/>
-                <Route path="/" render={ PageNotFound }/>
-              </Switch>
+            <Route render={({ location }) => {
+              return (
+                <TransitionGroup>
+                  <CSSTransition
+                  key={ location.key }
+                  timeout= { 300 }
+                  classNames={ 'Page-' }
+                  >
+                    <Switch location={ location }>
+                      <Route exact path="/" component={ Home } />
+                      <Route exact path="/work" component={ Work }/>
+                      <Route exact path="/about" component={ About }/>
+                      <Route exact path="/contact" component={ Contact }/>
+                      <Route path="/" render={ PageNotFound }/>
+                    </Switch>
+                  </CSSTransition>
+                </TransitionGroup>
+              );
+            }} />
             </Router>
           </Content>
         </Page>

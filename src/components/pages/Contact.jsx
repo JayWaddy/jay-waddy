@@ -10,11 +10,11 @@ import PageLink from '../PageLink';
 export default class Contact extends Component {
     render() {
         return (
-            <main className="Contact">
+            <section className="Page__Contact">
                 <h1>Have an idea for a project?</h1>
                 <p>And some further elaboration goes in here.</p>
                 <PageLink message="Send email" title email/>
-            </main>
+            </section>
         );
     }
 }

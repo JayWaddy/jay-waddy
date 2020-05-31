@@ -10,7 +10,7 @@ import BackgroundAnimation from '../BackgroundAnimation';
 
 export default function PageNotFound() {
     return (
-        <main className="PageNotFound">
+        <section className="Page__404">
             <img src={ require('../../img/logo_large.svg') } alt="logo" width="150px"/>
             <h1>404. Page not found.</h1>
             <p>Yeah. Not sure how you ended up here, but try heading back to the home page and try again.</p>
@@ -18,6 +18,6 @@ export default function PageNotFound() {
                 <PageLink page="/" message="Back to home page"/>
             </div>
             <BackgroundAnimation />
-        </main>
+        </section>
     );
 }
