@@ -3,14 +3,19 @@ import { Link as NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { SwitchTransition, CSSTransition } from 'react-transition-group';
 
-// Style
-import { colors } from './Global';
-
 // Images
 import logo from '../img/logo.svg';
 import rightArrow from '../img/arrow_right.svg';
 
 // Variaables
+import { 
+    colors, 
+    containerWidth, 
+    tabletContainerWidth, 
+    tabletBreakPoint,
+    desktopContainerWidth,
+    desktopBreakPoint
+} from './Global';
 const duration = 300 + 'ms';
 const easeQubic = 'cubic-bezier(0.87, 0, 0.13, 1)';
 const easeOut = 'cubic-bezier(0.16, 1, 0.3, 1)';
@@ -31,6 +36,14 @@ const NavbarContainer = styled.header`
 
     background: ${ colors.navbar };
 
+    @media only screen and (min-width: ${ tabletBreakPoint }) {
+        top:0;
+    }
+
+    @media only screen and (min-width: ${ desktopBreakPoint }) {
+        background: transparent;
+    }
+
 /* -------------------*
  * .Next-page--appear *
  * -------------------*/
@@ -45,8 +58,6 @@ const NavbarContainer = styled.header`
     transform: translateX(0);
     transition: ${ duration } ease;
     transition-delay: 0;
-
-    
 }
 
 /* ------------------*
@@ -223,7 +234,7 @@ const NavbarContainer = styled.header`
     }
 }
 
-    .Menu-icon--exit-done {
+.Menu-icon--exit-done {
     .Menu-icon__open::before {
         background: white;
         transform: rotate(45deg);
@@ -375,7 +386,7 @@ const Content = styled.div`
     justify-content: center;
     align-items: center;
 
-    width: 350px;
+    width: ${ containerWidth };
     height: 20px;
 
     .Nav-menu {
@@ -387,6 +398,14 @@ const Content = styled.div`
         li {
             margin: 0 15px;
         }
+    }
+
+    @media only screen and (min-width: ${ tabletBreakPoint }) {
+        width: ${ tabletContainerWidth };
+    }
+
+    @media only screen and (min-width: ${ desktopBreakPoint }) {
+        width: ${ desktopContainerWidth };
     }
 `;
 
@@ -624,6 +643,16 @@ export default class Navbar extends Component {
 
                     { /* Navbar__menu component */}
 
+                    {
+                        window.addEventListener('load', () => {
+                            window.innerWidth >= 1100 ? console.log('calc') : console.log('norm')
+                        })
+                    }
+                    {
+                        window.addEventListener('resize', () => {
+                            window.innerWidth >= 1100 ? console.log('calc') : console.log('norm')
+                        })
+                    }
                     <CSSTransition
                     classNames={ "Nav-menu-" }
                     in={ this.state.toggle }

@@ -6,7 +6,13 @@ const jostBlackItalic = require('../fonts/Jost-BlackItalic.ttf');
 const jostRegular = require('../fonts/Jost-Regular.ttf');
 
 // Global Variables
-export let containerWidth = 350 + 'px';
+export const containerWidth = 350 + 'px';
+export const tabletContainerWidth = '70%';
+export const desktopContainerWidth = 1000 + 'px';
+
+export const tabletBreakPoint = 700 + 'px';
+export const desktopBreakPoint = 1100 + 'px';
+
 export const colors = {
     background: '#1f1f1f',
     navbar: '#2f2f2f'
@@ -97,6 +103,7 @@ export const SiteContainer = styled.div`
 
     position: relative;
     display: flex;
+    justify-content: center;
     flex-direction: column;
 
     width: 100%;
@@ -130,6 +137,44 @@ export const SiteContainer = styled.div`
     h2 {
         font-size: 22px;
         font-weight: normal;
+    }
+
+    @media only screen and (min-width: ${ tabletBreakPoint }) {
+        .Page-container {
+            width: ${ tabletContainerWidth };
+        }
+        .Page-content {
+            width: 100%;
+        }
+    }
+
+    @media only screen and (min-width: ${ desktopBreakPoint }) {
+        .Page-container {
+            width: ${ desktopContainerWidth };
+        }
+        .Page-content {
+            width: 100%;
+        }
+    }
+
+    .Page {
+        @media only screen and (min-width: 700px) {
+            width: 100%;
+            margin: 80px auto auto auto;
+
+            section {
+                width: ${ tabletContainerWidth };
+            }
+        }
+
+        @media only screen and (min-width: ${ desktopBreakPoint }) {
+            width: 100%;
+            margin: 100px auto auto auto;
+
+            section {
+                width:  ${ desktopContainerWidth };
+            }
+        }
     }
 `;
 

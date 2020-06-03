@@ -36,11 +36,9 @@ export default class Home extends Component {
             <section className="Page__Home">
                 <img src={ logo } alt="logo" width="150px"/>
                 <h1>Here's a description of what I do.</h1>
-                
                 <Tip>
                     <p className="Tip--animation">Tap the link in the navbar.</p>
                 </Tip>
-
                 <BackgroundAnimation />
             </section>
         );

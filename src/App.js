@@ -23,50 +23,37 @@ import Navbar from './components/Navbar';
 // --------------
 
 export default class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      activePage: '',
-      nextPage: ''
-    }
-  }
-
-  routes = {
-    home: {
-      pathname: '/',
-      pageName: 'home'
-    }
-  }
-
   render() {
     return (
       <>
       <GlobalStyle />
       
-      <Container>
-        <Page>
-          <Content>
+      <Container className="App-container">
+        <Page className="Page-container">
+          <Content className="Page-content">
             <Router>
-            <Navbar />
-            <Route render={({ location }) => {
-              return (
-                <TransitionGroup>
-                  <CSSTransition
-                  key={ location.key }
-                  timeout= { 300 }
-                  classNames={ 'Page-' }
-                  >
-                    <Switch location={ location }>
-                      <Route exact path="/" component={ Home } />
-                      <Route exact path="/work" component={ Work }/>
-                      <Route exact path="/about" component={ About }/>
-                      <Route exact path="/contact" component={ Contact }/>
-                      <Route path="/" render={ PageNotFound }/>
-                    </Switch>
-                  </CSSTransition>
-                </TransitionGroup>
-              );
-            }} />
+              <Navbar />
+              <div className="Page">
+              <Route render={({ location }) => {
+                return (
+                  <TransitionGroup>
+                    <CSSTransition
+                    key={ location.key }
+                    timeout= { 300 }
+                    classNames={ 'Page-' }
+                    >
+                      <Switch location={ location }>
+                        <Route exact path="/" component={ Home } />
+                        <Route exact path="/work" component={ Work }/>
+                        <Route exact path="/about" component={ About }/>
+                        <Route exact path="/contact" component={ Contact }/>
+                        <Route path="/" render={ PageNotFound }/>
+                      </Switch>
+                    </CSSTransition>
+                  </TransitionGroup>
+                );
+              }} />
+              </div>
             </Router>
           </Content>
         </Page>
